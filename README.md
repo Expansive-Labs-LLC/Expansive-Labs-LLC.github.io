@@ -3,7 +3,7 @@ Website for expansive labs
 
 How to build site:
  
- -Install preequisites
+ -Install prerequisites
   Ruby version 2.5.0 or higher
   RubyGems
   GCC and Make
