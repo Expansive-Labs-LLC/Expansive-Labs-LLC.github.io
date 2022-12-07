@@ -1,16 +1,22 @@
 # expansive_labs_web
 Website for expansive labs
 
-# How to build site
+# Setup environment
+1. Install Ruby 2.5.0 or higher (check your Ruby version using ruby -v)
+
+2. Install or update RubyGems (check your Gems version using gem -v)
+
+3. Insatll GCC and Make (check versions using gcc -v,g++ -v, and make -v)
+
+4. Install Jekyll: Run `gem install jekyll bundler`
+
+
+# How to build site locally
+
+1. Download zip file or clone repo
  
-1. Install prerequisites
-  Ruby version 2.5.0 or higher,
-  RubyGems, and
-  GCC and Make
+2. CD into expansive_labs_web-main directory
  
-2. Install the jekyll and bundler gems
- 
-3. In expansive labs directory run:
-  "bundle exec jekyll serve"
+3. Run `bundle exec jekyll serve`
  
 4. Browse to http://localhost:4000
