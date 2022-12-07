@@ -2,7 +2,7 @@
 Website for expansive labs
 
 # Setup environment
-1. Install Ruby 2.5.0 or higher (check your Ruby version using ruby -v)
+1. Install Ruby 2.5.0 or higher and Ruby-dev (check your Ruby version using ruby -v)
 
 2. Install or update RubyGems (check your Gems version using gem -v)
 
