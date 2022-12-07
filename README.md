@@ -10,6 +10,8 @@ Website for expansive labs
 
 4. Install Jekyll: Run `gem install jekyll bundler`
 
+5. Run `bundle install`
+
 
 # How to build site locally
 
