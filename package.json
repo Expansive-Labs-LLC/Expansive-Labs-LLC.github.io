@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "soft-ui-design-system": "^1.0.4"
+  },
+    "scripts": {
+    "build": "eleventy" 
+  }
+}
+
