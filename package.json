@@ -1,9 +1,15 @@
 {
-  "dependencies": {
-    "soft-ui-design-system": "^1.0.4"
+  "name": "expansive-labs-llc.github.io",
+  "version": "1.0.0",
+  "description": "This repo contains an 11ty project for the website.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx eleventy --serve"
   },
-    "scripts": {
-    "build": "eleventy" 
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
   }
 }
-
