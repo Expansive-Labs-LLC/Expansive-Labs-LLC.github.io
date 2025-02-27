@@ -31,6 +31,18 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginRss)
     eleventyConfig.addPlugin(pluginNavigation)
     eleventyConfig.addPlugin(readingTime)
+    eleventyConfig.addCollection('services', (collection) => {
+        return collection
+          .getFilteredByGlob('./src/services/*.md')
+          .sort((a,b) => (Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1));
+    });
+    eleventyConfig.addCollection('featuredServices', (collection) => {
+        return collection
+            .getFilteredByGlob('./src/services/*.md')
+            .sort((a, b) => (Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1))
+            .filter((x) => x.data.featured);
+    });
+
 
     // Filters
     Object.keys(filters).forEach((filterName) => {
@@ -133,11 +145,7 @@ module.exports = function (eleventyConfig) {
     // Pass-through files
     eleventyConfig.addPassthroughCopy('src/robots.txt')
     eleventyConfig.addPassthroughCopy('src/site.webmanifest')
-    eleventyConfig.addPassthroughCopy({ 'src/assets/favicon': '/' })
-    eleventyConfig.addPassthroughCopy({ 'src/assets/fonts': '/fonts' })
-    eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' })
-    eleventyConfig.addPassthroughCopy({ 'src/assets/css': '/assets/css' })
-    eleventyConfig.addPassthroughCopy({ 'src/assets/js': '/assets/js' })
+    eleventyConfig.addPassthroughCopy({'src/static': '/static'})
 
     // Deep-Merge
     eleventyConfig.setDataDeepMerge(true)

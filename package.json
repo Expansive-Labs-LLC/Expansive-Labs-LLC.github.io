@@ -1,6 +1,6 @@
 {
     "author": "AppSeed",
-    "name": "eleventy-soft-ui-design",
+    "name": "priv-eleventy-soft-ui-pro",
     "version": "1.0.0",
     "description": "11ty Starter - Template Project",
     "browserslist": [
@@ -17,7 +17,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/app-generator/eleventy-soft-ui-design"
+        "url": "https://github.com/app-generator/priv-eleventy-soft-ui-pro"
     },
     "initial-author": "Max Böck",
     "initial-repository": {
@@ -25,32 +25,40 @@
         "url": "http://github.com/maxboeck/eleventastic"
     },
     "license": "MIT",
-    "devDependencies": {
-        "@11ty/eleventy": "^1.0.0-canary.39",
-        "@11ty/eleventy-img": "^0.8.3",
+    "dependencies": {
+        "@11ty/eleventy": "^3.0.0",
+        "@11ty/eleventy-img": "^6.0.1",
         "@11ty/eleventy-navigation": "^0.1.6",
-        "@11ty/eleventy-plugin-rss": "^1.1.1",
-        "@babel/core": "^7.13.14",
-        "@babel/plugin-transform-runtime": "^7.13.10",
-        "@babel/preset-env": "^7.13.12",
+        "@11ty/eleventy-plugin-rss": "^1.0.9",
+        "@babel/core": "^7.11.4",
+        "@babel/plugin-transform-runtime": "^7.11.0",
+        "@babel/preset-env": "^7.11.0",
         "babel-loader": "^8.2.2",
-        "clean-css": "^5.1.2",
-        "critical": "^3.0.0",
-        "cross-env": "^7.0.3",
+        "clean-css": "^4.2.3",
+        "critical": "^2.0.3",
         "cssesc": "^3.0.0",
         "del-cli": "^3.0.1",
-        "dotenv": "^10.0.0",
         "eleventy-plugin-reading-time": "^0.0.1",
-        "focus-trap": "^6.3.0",
+        "express": "^4.21.2",
+        "focus-trap": "^5.1.0",
         "focus-visible": "^5.2.0",
+        "fs": "^0.0.1-security",
+        "gray-matter": "^4.0.3",
         "html-minifier": "^4.0.0",
-        "luxon": "^1.26.0",
-        "markdown-it": "^12.0.4",
+        "luxon": "^3.5.0",
+        "markdown-it": "^12.0.2",
+        "marked": "^15.0.7",
         "memfs": "^3.2.0",
-        "node-sass": "^9.0.0",
         "npm-run-all": "^4.1.5",
-        "sharp": "^0.27.2",
+        "nunjucks": "^3.2.4",
+        "path": "^0.12.7",
+        "sass": "^1.85.0",
         "svg-sprite": "^1.5.0",
-        "webpack": "^5.28.0"
+        "webpack": "^4.44.1"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.2",
+        "eleventy-plugin-lazyimages": "^2.1.0",
+        "ftp-deploy": "^2.3.3"
     }
 }

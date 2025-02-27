@@ -1,0 +1,26 @@
+---
+services:
+- title: Cloud Infrastructure
+  icon: fas fa-cloud
+  description: ''
+  features:
+  - Architecture Consulting
+  - Platform Engineering
+  - Managed Services
+- title: DevOps
+  icon: fas fa-tools
+  description: ''
+  features:
+  - System Design Consulting
+  - Managed DevOps Tooling
+  - Project Management
+- title: Application Development
+  icon: fas fa-code
+  description: Turn your ideas into reality with our expert application development
+    services!
+  features: []
+- title: Security Certification Preparation
+  icon: fas fa-shield-alt
+  description: IT professional looking to advance your career or a company aiming
+    to strengthen your cybersecurity posture!
+  features: []
