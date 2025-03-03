@@ -396,7 +396,7 @@ permalink: "/team/"
     </div>
 
     <div class="row">
-      {% for member in collections.team %}
+      {% for member in collections.executiveTeam %}
       <div class="col-md-6 d-flex align-items-stretch">
         <div class="card card-profile card-plain w-100 h-100">
           <div class="row g-0">
@@ -418,15 +418,154 @@ permalink: "/team/"
                 <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.team }}</p>
                 <p class="mb-4">{{ member.data.bio }}</p>
                 <div class="social-buttons">
-                  <button type="button" class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2">
-                    <i class="fab fa-facebook"></i>
-                  </button>
+                  {% if member.data.facebook_url %}
+                  <a href="{{ member.data.facebook_url }}"target="_blank">
                   <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-twitterhub"></i>
+                    </a>
                   </button>
+                  {% endif %}
+                  {% if member.data.twitter_url %}
+                  <a href="{{ member.data.twitter_url }}"target="_blank">
+                  <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-twitterhub"></i>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.github_url %}
+                  <a href="{{ member.data.github_url }}"target="_blank">
                   <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
                     <i class="fab fa-github"></i>
+                    </a>
                   </button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center mb-5">
+        <h3 class="text-gradient text-info">The Web Development Team</h3>
+        <p class="font-weight-normal">Meet our skilled professionals who drive our company forward.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for member in collections.webDevelopmentTeam %}
+      <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card card-profile card-plain w-100 h-100">
+          <div class="row g-0">
+            <div class="col-lg-5 d-flex align-items-center">
+              <a href="{{ member.url }}" class="w-100">
+                <div class="position-relative w-100">
+                  <div class="blur-shadow-image">
+                    <img class="w-100 h-100 object-fit-cover rounded-3 shadow-lg"
+                         src="{{ member.data.image | default('/static/assets/img/default-avatar.jpg') }}" 
+                         alt="{{ member.data.title }}">
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-7 ps-0 my-auto">
+              <div class="card-body text-start">
+                <h5 class="font-weight-bolder mb-0">{{ member.data.title }}</h5>
+                <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.role }}</p>
+                <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.team }}</p>
+                <p class="mb-4">{{ member.data.bio }}</p>
+                <div class="social-buttons">
+                  {% if member.data.facebook_url %}
+                  <a href="{{ member.data.facebook_url }}"target="_blank">
+                  <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-twitterhub"></i>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.twitter_url %}
+                  <a href="{{ member.data.twitter_url }}"target="_blank">
+                  <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-twitterhub"></i>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.github_url %}
+                  <a href="{{ member.data.github_url }}"target="_blank">
+                  <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-github"></i>
+                    </a>
+                  </button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center mb-5">
+        <h3 class="text-gradient text-info">Third Name Here</h3>
+        <p class="font-weight-normal">Meet our skilled professionals who drive our company forward.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for member in collections.newTeam %}
+      <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card card-profile card-plain w-100 h-100">
+          <div class="row g-0">
+            <div class="col-lg-5 d-flex align-items-center">
+              <a href="{{ member.url }}" class="w-100">
+                <div class="position-relative w-100">
+                  <div class="blur-shadow-image">
+                    <img class="w-100 h-100 object-fit-cover rounded-3 shadow-lg"
+                         src="{{ member.data.image | default('/static/assets/img/default-avatar.jpg') }}" 
+                         alt="{{ member.data.title }}">
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-7 ps-0 my-auto">
+              <div class="card-body text-start">
+                <h5 class="font-weight-bolder mb-0">{{ member.data.title }}</h5>
+                <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.role }}</p>
+                <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.team }}</p>
+                <p class="mb-4">{{ member.data.bio }}</p>
+                <div class="social-buttons">
+                  {% if member.data.facebook_url %}
+                  <a href="{{ member.data.facebook_url }}"target="_blank">
+                  <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-twitterhub"></i>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.twitter_url %}
+                  <a href="{{ member.data.twitter_url }}"target="_blank">
+                  <button type="button" class="btn btn-twitter btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-twitterhub"></i>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.github_url %}
+                  <a href="{{ member.data.github_url }}"target="_blank">
+                  <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
+                    <i class="fab fa-github"></i>
+                    </a>
+                  </button>
+                  {% endif %}
                 </div>
               </div>
             </div>

@@ -5,5 +5,8 @@ role: "Office Manager"
 image: "/static/assets/img/hayley.jpg"
 bio: "Day to day operations."
 permalink: "team/hayley/"
-tags: team
+tags: executiveTeam
+github_url: "https://github.com"
+twitter_url:
+facebook:url:
 ---
