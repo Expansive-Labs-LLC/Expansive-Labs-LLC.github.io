@@ -2,7 +2,7 @@
 layout: team-profile
 title: "Jacob Powell"
 role: "Web Development"
-image: "/static/assets/img/Jacob.jpg"
+image: "/static/assets/img/jacob1.jpg"
 bio: "Building the site"
 permalink: "team/jacob/"
 tags: webDevelopmentTeam
