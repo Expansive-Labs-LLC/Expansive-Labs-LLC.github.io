@@ -17,7 +17,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/app-generator/priv-eleventy-soft-ui-pro"
+        "url": "git+https://github.com/app-generator/priv-eleventy-soft-ui-pro.git"
     },
     "initial-author": "Max Böck",
     "initial-repository": {
@@ -60,5 +60,11 @@
         "cross-env": "^7.0.2",
         "eleventy-plugin-lazyimages": "^2.1.0",
         "ftp-deploy": "^2.3.3"
-    }
+    },
+    "main": ".eleventy.js",
+    "keywords": [],
+    "bugs": {
+        "url": "https://github.com/app-generator/priv-eleventy-soft-ui-pro/issues"
+    },
+    "homepage": "https://github.com/app-generator/priv-eleventy-soft-ui-pro#readme"
 }
