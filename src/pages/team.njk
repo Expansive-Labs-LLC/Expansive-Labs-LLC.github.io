@@ -1,8 +1,3 @@
----
-layout: base-blog
-title: "Our Team"
-permalink: "/team/"
----
 {% include "navigation-sticky.njk" %}
 
 <style>
@@ -124,7 +119,6 @@ permalink: "/team/"
                 <p class="mb-4">{{ member.data.bio }}</p>
                 <div class="social-buttons">
                   {% if member.data.facebook_url %}
-                  <a href="{{ member.data.facebook_url }}"target="_blank">
                   <button type="button" class="btn btn-facebook btn-simple btn-lg mb-0 px-2">
                     <svg width="20" height="20" viewBox="0 0 32 32">
                        <image href="/static/assets/img/Facebook.svg" width="100%" height="100%" />

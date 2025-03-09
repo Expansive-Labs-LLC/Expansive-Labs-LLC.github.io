@@ -1,13 +1,9 @@
-title: About Us
-subtitle: We are a team of experienced individuals focused on team growth through DevOps empowerment
+---
+layout: base-blog-single
+title: "About Us"
 mission: Our mission to transform startups at the right time and at the right speed is graceful.
-team:
-  name: Derek DeJonghe
-  role: Founder
-  bio: Spending a decade imbedded consulting in Corperate America, Derek knows what does work and what doesn't in regards to managing Egineering."
-  image: /static/assets/img/derek.jpg
-  Engineering Practice
- 
+permalink: "/about-us/"
+---
 
 Democratizing scientific inquiry, enabling individuals to become researchers of their own lives. Let's break down the key elements and explore the possibilities and challenges:
 
@@ -124,3 +120,4 @@ Security concerns could arise from the open nature of the project.
 Funding: The text provided does not mention funding. How the project will be funded is a large consideration.
 
 In essence, this is a "build it and they will come" approach, relying on the power of open collaboration and community engagement.
+---

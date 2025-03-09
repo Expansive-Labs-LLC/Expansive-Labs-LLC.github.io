@@ -2,11 +2,12 @@
 layout: team-profile
 title: "Hayley Blackman"
 role: "Office Manager"
-image: "/static/assets/img/hayley1.jpg"
+team: "Apprentice"
+image: "/static/assets/img/Hayley1.jpg"
 bio: "Day to day operations."
-permalink: "team/hayley/"
+permalink: "/team/"
 tags: executiveTeam
 github_url: "https://github.com"
 twitter_url:
-facebook:url:
+facebook:url: "https://www.facebook.com/blackman.hayley/"
 ---
