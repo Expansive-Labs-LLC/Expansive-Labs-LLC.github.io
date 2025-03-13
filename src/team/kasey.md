@@ -5,6 +5,6 @@ role: "Web Development"
 image: "/static/assets/img/Kasey.jpg"
 bio: "Building the site"
 permalink: "team/kasey/"
-tags: webDevelopmentTeam
+tags: ["webDevTeam", "teamMembers"]
 github_url: "https://github.com/Mother7Goose"
 ---

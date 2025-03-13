@@ -40,25 +40,53 @@ Coded by www.creative-tim.com
 </head>
 <body class="{{ body_class }}">
 
-  {{ content | safe }}
+ <header class="header-2">
+    <div class="page-header section-height-75 relative"style="background-image: url('/static/assets/img/testTubes.jpg')">
+        
+            {% for member in collections.teamMembers %}
+            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+              <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
+                 
+            </div>
+          
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+  </header>
+
+  {% include "footer.njk" %}
 
   {% include "scripts.njk" %}
 
+  <!--  Google Maps Plugin    -->
   <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.1" type="text/javascript"></script>
-  <script>
-    if (document.getElementsByClassName('page-header')) {
-      window.addEventListener('scroll', function() {
-        var scrollPosition = window.pageYOffset;
-        var bgParallax = document.querySelector('.page-header');
-        var limit = bgParallax.offsetTop + bgParallax.offsetHeight;
-        if (scrollPosition > bgParallax.offsetTop && scrollPosition <= limit) {
-          bgParallax.style.backgroundPositionY = (50 - 10 * scrollPosition / limit * 3) + '%';
-        } else {
-          bgParallax.style.backgroundPositionY = '50%';
-        }
-      });
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
     }
   </script>
-  
+
 </body>
 </html>
