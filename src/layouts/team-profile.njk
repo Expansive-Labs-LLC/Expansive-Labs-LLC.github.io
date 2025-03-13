@@ -39,21 +39,44 @@ Coded by www.creative-tim.com
 
 </head>
 <body class="{{ body_class }}">
+ {% include "navigation.njk" %}
 
  <header class="header-2">
     <div class="page-header section-height-75 relative"style="background-image: url('/static/assets/img/testTubes.jpg')">
         
-            {% for member in collections.teamMembers %}
-            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-              <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
-                 
+    {% for member in collections.Derek %}
+          <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+            <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
             </div>
-          
-          </div>
-          {% endfor %}
+            {% endfor %}
+
+          {% for member in collections.Hayley %}
+            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+            <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
+            </div>
+            {% endfor %}
+
+              {% for member in collections.Kasey %}
+            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+            <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
+            </div>
+              
+            {% endfor %}
+              {% for member in collections.Jacob %}
+            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+            <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
+            </div>
+              
+            {% endfor %}
+            
+
         </div>
       </div>
   </header>
+
+  
+        
+        
 
   {% include "footer.njk" %}
 
