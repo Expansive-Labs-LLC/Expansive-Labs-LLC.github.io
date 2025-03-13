@@ -1,5 +1,5 @@
 ---
-layout: base-blog
+layout: about-us.njk
 title: "Our Team"
 permalink: "/about-us/"
 ---
@@ -93,7 +93,7 @@ permalink: "/about-us/"
         <div class="row">
             {% for member in collections.aboutUs %}
             <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-              <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ member.data.aboutUsTitle}}</h2>
+              <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
                  <br>
               
               </div>
