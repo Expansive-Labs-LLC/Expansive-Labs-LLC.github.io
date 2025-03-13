@@ -17,4 +17,9 @@ Derek did a thing
 
 # Playlists
 
-I create playlists that help me with work and life find them here: aksdjflasjdflasd
+<!--
+We can use buttons or links in markdown to link to another md file or a playlist itself:
+
+<button type="button" onclick="https://spotify.com" class="btn btn-info w-auto me-1 mb-0">Postive Vibes Playlist</button>
+
+--!>
