@@ -37,23 +37,43 @@ Coded by www.creative-tim.com
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
 
+
+<style>
+.container {
+    position: relative; /* Allows child elements to be positioned absolutely */
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+</style>  
+
 </head>
 <body class="{{ body_class }}">
+ {% include "navigation.njk" %}
 
  <header class="header-2">
     <div class="page-header section-height-75 relative"style="background-image: url('/static/assets/img/testTubes.jpg')">
         
-            {% for member in collections.teamMembers %}
-            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-              <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
-                 
+        <div class="container">
+          <div class="card card-body-small blur text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5 position-absolute">
+            <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
             </div>
-          
-          </div>
-          {% endfor %}
+            
+
+            
+
         </div>
       </div>
+    </div>
   </header>
+
+  
+        
+        
 
   {% include "footer.njk" %}
 
