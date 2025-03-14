@@ -6,7 +6,7 @@ title: "Euphoria"
 image: "/static/assets/img/musicLogo6.jpg"
 tags: playlists
 ---
-# Jodie
+# Euphoria
 Meow Meow Meow 
 
 
