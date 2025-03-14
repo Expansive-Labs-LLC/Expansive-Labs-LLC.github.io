@@ -160,17 +160,18 @@ permalink: "/team/"
     </div>
   </div>
 </section>
+
 <section class="py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto text-center mb-5">
-        <h3 class="text-gradient text-info">The Thought Leaders</h3>
-        <p class="font-weight-normal">Meet our thought leaders.</p>
+        <h3 class="text-gradient text-info">The Web Development Team</h3>
+        <p class="font-weight-normal">Meet our skilled professionals who drive our company forward.</p>
       </div>
     </div>
 
     <div class="row">
-      {% for member in collections.thoughtLeaders %}
+      {% for member in collections.webDevTeam %}
       <div class="col-md-6 d-flex align-items-stretch">
         <div class="card card-profile card-plain w-100 h-100">
           <div class="row g-0">
@@ -227,19 +228,20 @@ permalink: "/team/"
     </div>
   </div>
 </section>
+
 <section class="py-5">
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto text-center mb-5">
-        <h3 class="text-gradient text-info">The Web Development Team</h3>
-        <p class="font-weight-normal">Meet our skilled professionals who drive our company forward.</p>
+        <h3 class="text-gradient text-info">The Thought Leaders</h3>
+        <p class="font-weight-normal">Meet our thought leaders.</p>
       </div>
     </div>
 
     <div class="row">
-      {% for member in collections.webDevTeam %}
-      <div class="col-md-6 d-flex align-items-stretch">
-        <div class="card card-profile card-plain w-100 h-100">
+      {% for member in collections.thoughtLeaders %}
+      <div class="col-md-6 d-flex align-items-stretch" style="margin:auto;">
+        <div class="card card-profile card-plain w-100 h-100" >
           <div class="row g-0">
             <div class="col-lg-5 d-flex align-items-center">
               <a href="{{ member.url }}" class="w-100">
