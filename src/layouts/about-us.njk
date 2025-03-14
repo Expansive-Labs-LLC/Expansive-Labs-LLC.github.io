@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
 DEREK TEST
 =========================================================
@@ -27,6 +28,21 @@ Coded by www.creative-tim.com
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+=======
+---
+title: My Rad Blog
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+>>>>>>> origin/main
   <!-- Nucleo Icons -->
   <link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="/static/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -37,6 +53,7 @@ Coded by www.creative-tim.com
   <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
+<<<<<<< HEAD
 
 </head>
 
@@ -129,3 +146,91 @@ Coded by www.creative-tim.com
 </body>
 
 </html>
+=======
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+ 
+ </head>
+ 
+ 
+
+<style>
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+
+  .team-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .team-card h2 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+  }
+
+  .team-card p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .card-profile .row {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .card-profile img {
+    object-fit: cover;
+    height: 270px!important;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .row.g-0 {
+    margin: 0;
+  }
+</style>
+
+
+
+
+<body class="{{ body_class }}">
+
+     {{ content | safe }}
+     
+     
+     
+     <h1 class="text-gradient text-primary">{{ title }}</h1>
+
+     
+
+  {% include "scripts.njk" %}
+
+  <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.1" type="text/javascript"></script>
+  
+</body>
+</html>
+
+
+
+
+>>>>>>> origin/main

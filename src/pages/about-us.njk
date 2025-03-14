@@ -1,0 +1,115 @@
+---
+layout: about-us.njk
+title: "Our Team"
+permalink: "/about-us/"
+---
+{% include "navigation-sticky.njk" %}
+
+<style>
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+
+  .team-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .team-card h2 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+  }
+
+  .team-card p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .card-profile .row {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .card-profile img {
+    object-fit: cover;
+    height: 270px!important;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .row.g-0 {
+    margin: 0;
+  }
+</style>
+
+<header class="header-2">
+    <div class="page-header section-height-75 relative"style="background-image: url('/static/assets/img/testTubes.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">
+              About Us
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for member in collections.aboutUs %}
+            <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+              <h2 class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">{{ content | safe }}</h2>
+                 <br>
+              
+              </div>
+            </div>
+          
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+  </header>
+
+  
+
+
+
+
+
+
+{% include "footer.njk" %}
