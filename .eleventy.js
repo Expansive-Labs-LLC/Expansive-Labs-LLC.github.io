@@ -43,6 +43,12 @@ module.exports = function (eleventyConfig) {
             .filter((x) => x.data.featured);
     });
 
+    // Returns  items, sorted by display order
+    eleventyConfig.addCollection('playlists', (collection) => {
+	    return collection
+		    .getFilteredByGlob('./src/playlists/*.md')
+    });
+
 
     // Filters
     Object.keys(filters).forEach((filterName) => {

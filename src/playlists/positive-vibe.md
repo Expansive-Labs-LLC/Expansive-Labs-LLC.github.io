@@ -1,9 +1,10 @@
 ---
-name: Positive Vibe
-author: derek
-tags: 
-  - postive
-  - upbeat
+layout: playlists
+name: Positive Vibes
+author: Derek
+title: "Positive Vibes"
+image: "/static/assets/img/musicLogo0.jpg"
+tags: playlists
 ---
 # Positive Vibes: Your Soundtrack to Empowerment
 
@@ -37,6 +38,6 @@ I believe everyone can benefit from a dose of positive energy. That's why I'm sh
 
 **Access the Playlist:**
 
-*[Insert Link to your Playlist Here - Spotify, Apple Music, YouTube Music, etc.]*
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2Qcxrx62ZcCNovyM3ta94C?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 **In essence:** "Positive Vibes" is more than just a playlist; it's a tool for personal empowerment, helping you navigate life's challenges with optimism and proactive action.
