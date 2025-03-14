@@ -52,7 +52,7 @@ The intent behind this playlist is to create a dynamic and transformative listen
 
 **Access the Playlist:**
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/playlist/5VkvYnJ6ymsrpABjWdAz8u?si=177b7a76a5e74f95" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5VkvYnJ6ymsrpABjWdAz8u?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 **Conclusion:**
 
