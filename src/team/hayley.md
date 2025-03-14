@@ -9,16 +9,9 @@ tags: ["founders", "Hayley"]
 github_url: "https://github.com"
 twitter_url:
 facebook:url:
-<<<<<<< HEAD
---- 
-# About Me
-
-Hayleys about me
-=======
 ---
 
 # About Me
 
 Hayleys about me
 
->>>>>>> main
