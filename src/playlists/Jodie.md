@@ -2,7 +2,7 @@
 layout: playlists
 name: Hayleys Playlist
 author: Hayley
-title: "Jodie"
+title: "Euphoria"
 image: "/static/assets/img/musicLogo6.jpg"
 tags: playlists
 ---
