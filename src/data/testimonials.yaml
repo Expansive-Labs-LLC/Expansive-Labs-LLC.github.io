@@ -1,0 +1,29 @@
+---
+testimonials:
+- name: Alice Johnson
+  role: CEO, TechCorp
+  image: "/static/assets/img/team-1.jpg"
+  quote: This service exceeded our expectations. The team was professional, and the
+    results were outstanding!
+  rating: 5
+  company_logo: "/static/assets/img/logos/white-logos/logo-apple-white.svg"
+- name: Mark Spencer
+  role: Marketing Director, WebFlow
+  image: "/static/assets/img/team-2.jpg"
+  quote: A seamless experience from start to finish. Highly recommend!
+  rating: 4
+  company_logo: "/static/assets/img/logos/white-logos/logo-apple-white.svg"
+- name: Sophia Lee
+  role: Product Manager, FinTech Inc.
+  image: "/static/assets/img/team-3.jpg"
+  quote: Exceptional quality and attention to detail. Will definitely work with them
+    again!
+  rating: 5
+  company_logo: "/static/assets/img/logos/white-logos/logo-apple-white.svg"
+- name: James Carter
+  role: Founder, Startup X
+  image: "/static/assets/img/team-4.jpg"
+  quote: Impressed by their expertise and quick turnaround. A game-changer for our
+    business!
+  rating: 5
+  company_logo: "/static/assets/img/logos/white-logos/logo-apple-white.svg"
