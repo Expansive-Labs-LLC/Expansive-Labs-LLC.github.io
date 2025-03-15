@@ -10,7 +10,7 @@ tags: playlists
 
 **Introduction:**
 
-This playlist, titled "Sad Girl DnB," is designed to be more than just a collection of songs. It's a carefully curated experience intended to facilitate emotional processing, empowerment, and energized action. While the name suggests sadness, the playlist's true purpose is to transform that sadness into a catalyst for positive change.
+This playlist, titled "Sad Girl DnB," is designed to be more than just a collection of songs. It's a carefully curated experience intended to facilitate emotional processing, empowerment, and energized action. While the name suggests sadness, the playlist's true purpose is to transform that sadness into a catalyst for positive change. There are two purposefully built interludes, one acid house, and one psytrance to break things up a bit.
 
 **Purpose:**
 
