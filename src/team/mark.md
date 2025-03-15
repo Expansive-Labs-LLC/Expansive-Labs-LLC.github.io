@@ -11,7 +11,7 @@ twitter_url:
 facebook_url:
 ---
 
-**Title: The Metaphor of the Flowing Container: Giving and Receiving**
+# The Metaphor of the Flowing Container: Giving and Receiving
 
 **Introduction:**
 
