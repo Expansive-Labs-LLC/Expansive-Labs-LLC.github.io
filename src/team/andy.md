@@ -2,7 +2,7 @@
 layout: team-profile
 title: "Andrew Ford"
 role: "Information Technology"
-image: "/static/assets/img/image_placeholder.jpg"
+image: "/static/assets/img/andy.png"
 bio: "Andrew is in charge of the networking and technology operation."
 permalink: "team/Andy/"
 tags: ["infoTech", "Andy"]
