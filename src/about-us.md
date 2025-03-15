@@ -1,6 +1,6 @@
 ---
 layout: about-us
-title: "Our Team"
+title: "Expansive Labs | Our Team"
 permalink: "/about-us/"
 tags: aboutUs
 body_class: presentation-page
