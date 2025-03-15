@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title></title>
+    <subtitle></subtitle>
+    <link href="/feed.xml" rel="self" type="application/atom+xml" />
+    <link href="" rel="alternate" type="text/html"/>
+    <author>
+        <name></name>
+    </author>
+    
+    <updated>2025-02-15T00:00:00Z</updated>
+    
+    <id>/</id>
+        <entry>
+            <title>Third Blog Post</title>
+            <link href="/posts/third-blog-post/"/>
+            <updated>2025-02-15T00:00:00Z</updated>
+            <id>/posts/third-blog-post/</id>
+            <content type="html"><![CDATA[
+                <p>Welcome to my third blog post!</p>
+
+            ]]></content>
+        </entry>
+        <entry>
+            <title>Second Blog Post</title>
+            <link href="/posts/second-blog-post/"/>
+            <updated>2025-02-15T00:00:00Z</updated>
+            <id>/posts/second-blog-post/</id>
+            <content type="html"><![CDATA[
+                <p>Welcome to my second blog post!</p>
+
+            ]]></content>
+        </entry>
+        <entry>
+            <title>AWS Batch</title>
+            <link href="/aws-batch/"/>
+            <updated>2018-04-13T00:00:00Z</updated>
+            <id>/aws-batch/</id>
+            <content type="html"><![CDATA[
+                <h1>AWS Batch Example</h1>
+<p>Find the code on <a href="https://github.com/dejonghe/aws-batch-example">GitHub</a></p>
+<h2>Objective</h2>
+<p>This is example of the Amazon Batch Service to deploy an example batch workflow. This example is meant to be a deployable artifact POC. This example will use CloudFormation, AWS Lambda, Docker, AWS Batch, and an S3 bucket trigger.</p>
+<p>The batch workflow created in this example is not a prescription for how batch processing should be done but merely an example. In this example all of the jobs for the workflow are scheduled at once. In doing so your scheduler could pass environment variables or change the command of each job to instruct the jobs where to store data, and where to expect data. Another approach would be to, have processing jobs schedule their dependent jobs, instructing those dependent jobs where to find the data that they produced. There are many ways batch processing can be utilized, this is simply an example.</p>
+<h3>Why I Think Batch is Cool</h3>
+<ul>
+<li>AWS Batch can manage the infrastructure for you, scaling up or down based on the number of jobs in queue.</li>
+<li>AWS Batch is able to scale vertically as well, when your Compute Environment Instance Type is set to “optimal”.</li>
+<li>AWS Batch can automatically bid on spot instances for you.</li>
+<li>Your Job queues can be worked by multiple Compute Environments.
+<ul>
+<li>You can set preference for a Spot Instance Compute Environment</li>
+<li>When your first Compute Environment is unavailable or over worked the job can be picked up by the next.</li>
+</ul>
+</li>
+<li>Job Queues have priority, which means you can have high priority jobs completed first.</li>
+<li>Job Definitions can be either docker tasks or Lambda Functions.</li>
+<li>Job Definitions can have default environments, mount points, volumes, CMD, etc.</li>
+<li>Job Definition defaults can be overrode on Submission</li>
+<li>Jobs can have dependencies</li>
+<li>You can run an array of the same job, making Monte Carlo simulations a breeze.</li>
+</ul>
+<hr />
+<h2><strong>Note: You are responsible for the costs incurred by running this example.</strong></h2>
+<p>The example is limited to a total of 24 CPU’s at a given time unless altered, and defaults to 0 running instances when no jobs are in queue.</p>
+<hr />
+<h2>Diagram</h2>
+<p><img src="/static/images/Batch-POC-Diagram.png" alt="Diagram" /></p>
+<h2>Preparation and Demonstration</h2>
+<p>Before you jump head first into AWS Batch you need code for batch to run. AWS batch is able to run docker container tasks, and AWS Lambda Functions. This example will use docker container tasks, and a Lambda function to submit a job when an object is created or modified in a S3 bucket. This repository consists of everything you will need to build the proof of concept. There is a prep script that will build the Lambda code into a zip package and upload it to a S3 Bucket. This script will then validate you have ECR repositories available to host the docker container images that are used, fetch credentials for the ECR repositories, then build and push the images. After this you will deploy the CloudFormation to produce the AWS Batch POC. This documentation will walk you through running all of the commands and explain what they do.</p>
+<h3>Assumptions:</h3>
+<ul>
+<li>You have an AWS Account.</li>
+<li>You’re using Bash.</li>
+<li>You have pip installed. <a href="https://pip.pypa.io/en/stable/installing/">Help</a></li>
+<li>You have the AWS CLI installed, preferred version 1.11.108 or greater. <a href="https://docs.aws.amazon.com/cli/latest/userguide/installing.html">Help</a></li>
+<li>You have configured the CLI, set up AWS IAM access credentials that have appropreate access. <a href="https://docs.aws.amazon.com/cli/latest/reference/configure/index.html">Help</a></li>
+<li>You have docker installed. <a href="https://docs.docker.com/install/">Help</a></li>
+<li>You have a Ec2 KeyPair in your AWS Account / Default Region <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Help</a></li>
+<li>You have a VPC with at least two subnets that have internet access, you can use the default VPC. <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">Help</a></li>
+</ul>
+<h3>Step 1: Create a S3 Bucket.</h3>
+<p>You will need a S3 bucket to work out of, we will use this bucket to upload our lambda code zip. Create the bucket with the following CLI command or through the console. Keep in mind that S3 bucket names are globally unique and you will have to come up with a bucket name for yourself.</p>
+<pre><code>aws s3 mb s3://aws_batch_example_{yourName} (--profile optionalProfile)
+</code></pre>
+<h3>Step 2: Clone the example Github project.</h3>
+<p>I have prepared a Github project with all of the example CloudFormation and code to get you off the ground. Clone this Github project to your local machine.</p>
+<p><a href="https://github.com/dejonghe/aws-batch-example">https://github.com/dejonghe/aws-batch-example</a></p>
+<h3>Step 3: Run the env_prep Script.</h3>
+<p>To prepare</p>
+<p>You must run a script from within the Github project. This script is to be ran from the base of the repository. If you rename the repository directory you will need to edit the <a href="https://github.com/dejonghe/aws-batch-example/scripts/env_prep.sh">script</a>, all the variables are at the top.</p>
+<p>This script performs the following tasks:</p>
+<ol>
+<li>Builds and and uploads the lambda code
+<ul>
+<li>The script creates a temp directory</li>
+<li>Copies the code from <a href="https://github.com/dejonghe/aws-batch-example/lambda/trigger/">lambda trigger</a> to the temp directory</li>
+<li>Uses pip to install the requirements to the temp directory</li>
+<li>Zips up the contents of the temp directory to a package named ./lambda/trigger.zip</li>
+<li>Removes the temp directory</li>
+<li>Uploads the zip to <code>s3://{yourBucket}/{release(develop)}/lambda/trigger.zip</code></li>
+</ul>
+</li>
+<li>Creates and or Validates ECR Repositories
+<ul>
+<li>The script will validate you have two ECR Repositories: [‘batchpocstart’,‘batchpocprocess’]</li>
+<li>If either of the repositories are missing it will create them.</li>
+</ul>
+</li>
+<li>Get docker login credentials for the repositories
+<ul>
+<li>The script uses <code>aws ecr get-login</code> piped to <code>bash</code></li>
+</ul>
+</li>
+<li>Docker images are built and pushed
+<ul>
+<li>The script moves into the directory containing the Dockerfiles</li>
+<li><a href="https://github.com/dejonghe/aws-batch-example/docker/batchpocstart/">batchpocstart</a>: Has a small python application that schedules jobs that depend on each other.</li>
+<li><a href="https://github.com/dejonghe/aws-batch-example/docker/batchpocprocess/">batchpocprocess</a>: Is just a busybox container that runs <code>echo &quot;hello world&quot;</code> to emulate work.</li>
+<li>Once in the given directory the script will use the docker command line tool to build the image.</li>
+<li>The images are tagged to match the repository created previously. {accountId}.dkr.ecr.{region}.amazonaws.com/{repoName}:latest</li>
+<li>Images are pushed to ECR.</li>
+</ul>
+</li>
+</ol>
+<p>The following is an example of running the script. <strong>Note:</strong> You can pass -p profile, and -r release (Your aws-cli profile’s default regions is used)</p>
+<pre><code>./scripts/env_prep.sh -b aws_batch_example_{yourName} (-p optionalProfile -r optionalRelease)
+</code></pre>
+<h3>Step 4: Create the CloudFormation Stack.</h3>
+<p>This step utilizes the <a href="https://github.com/dejonghe/aws-batch-example/cloudformation/batch/batch-example.yml">CloudFormation Template</a> to produce the batch environment and supporting resources and hooks. You can upload this template directly to the AWS CloudFormation Console, or use the following command. The console will provide drop downs for the networking and Ec2 KeyPair parameters. If you use the command line you’ll have to look these up yourself to fill out the command line arguments. If you want SSH access to the batch instances, ensure that the VPCCidr parameter is set to the Cidr of your VPC, it’s used for the batch instance security group. You must provide IAM capabilities to this CloudFormation stack because we must create an IAM role for the lambda function, the batch instances, and the batch containers. A full description of the CloudFormation stack and what it creates can be found in the <a href="https://github.com/dejonghe/aws-batch-example/cloudformation/batch/README.md">README.md</a></p>
+<pre><code>aws cloudformation create-stack --template-body file://cloudformation/batch/batch-example.yml --stack-name batch-example --parameters '[{&quot;ParameterKey&quot;:&quot;CloudToolsBucket&quot;,&quot;ParameterValue&quot;:&quot;aws_batch_example_{yourName}&quot;},{&quot;ParameterKey&quot;:&quot;VPCCidr&quot;,&quot;ParameterValue&quot;:&quot;10.0.0.0/16&quot;},{&quot;ParameterKey&quot;:&quot;VPC&quot;,&quot;ParameterValue&quot;:&quot;vpc-xxxxxxxx&quot;},{&quot;ParameterKey&quot;:&quot;Subnets&quot;,&quot;ParameterValue&quot;:&quot;subnet-xxxxxxxx,subnet-xxxxxxxx&quot;},{&quot;ParameterKey&quot;:&quot;Ec2KeyPair&quot;,&quot;ParameterValue&quot;:&quot;{yourKeyPairName}&quot;}]' --capabilities CAPABILITY_NAMED_IAM (--profile optionalProfile)
+
+</code></pre>
+<p>Wait for the CloudFormation stack to complete and then check in on the Batch Dashboard.</p>
+<h3>Step 6: Exercise the demo</h3>
+<h4>Upload to S3</h4>
+<p>The CloudFormation stack created a S3 bucket. When a object is created or updated in this bucket, a notification triggers the lambda to submit a job to AWS batch. The S3 bucket is named: <code>batch-poc-{yourAccountId}-{region}</code>. Upload a file to this bucket through the console or with the following command and watch a job get submitted to AWS Batch.</p>
+<pre><code>aws s3 cp ./README.md s3://batch-poc-{yourAccountId}-{region}/ (--profile optionalProfile)
+</code></pre>
+<h4>Watch the Batch Dashboard</h4>
+<p>From the Batch Dashboard you should see the Queue, and Compute Environment. You will be able to track the status of jobs from the Dashboard. <strong>Make sure to refresh</strong></p>
+<ol>
+<li>You’ll see a job appear in the submitted state.</li>
+<li>It will quickly jump to Pending then to Runnable.</li>
+<li>Once the job is runnable there will need to be a instance in the Compute Environment to run the job.</li>
+<li>Note that the current Desired vCPUs for your Compute Environment is initially 0. This means you have 0 instance in your Compute Environment.</li>
+<li>As the job becomes runnable Batch will start to launch an EC2 instance for the job to run on. This can take a few minutes.
+<ul>
+<li>To keep a Batch Compute Environment warm so you do not have to wait, up the Minimum vCPUs.</li>
+</ul>
+</li>
+<li>Once your Compute Environment is online you will see your job move to starting.
+<ul>
+<li>This can take a few moments for the first run because the instance needs to pull down the container image.</li>
+</ul>
+</li>
+<li>Your Job will then move to running for a brief second, and then to Success or Failed.</li>
+<li>Whether you job is a Success or Failure, if you click into the link you will be taken to the Jobs Dashboard for that Status.</li>
+<li>Click the JobId. You will see detail appear on the right hand side.</li>
+<li>In the detail you will see link to view logs. Click on it to explore.</li>
+<li>If the first job was successful, 5 other jobs will be submitted and move through the different status’s.
+<ul>
+<li>Note that when the group of 5 is submitted some stay in pending, and do not immediately go to runnable. This is because those jobs have dependencies.</li>
+</ul>
+</li>
+<li>Now submit a job manually through the Jobs Dashboard.
+<ul>
+<li>Play with running jobs different ways.</li>
+<li>Try submitting an Array.</li>
+</ul>
+</li>
+<li>Find other ways to trigger batch jobs:
+<ul>
+<li>The lambda function allows you to integrate with anything that can invoke lambda or SNS, though you’ll have to edit the permissions.</li>
+<li>Check out the CloudWatch Events trigger for AWS Batch, to trigger based on CloudWatch Event rules/patterns or a time schedule.</li>
+</ul>
+</li>
+</ol>
+
+            ]]></content>
+        </entry></feed>
