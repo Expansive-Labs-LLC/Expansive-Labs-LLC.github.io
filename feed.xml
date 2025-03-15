@@ -8,34 +8,31 @@
         <name></name>
     </author>
     
-    <updated>2025-02-15T00:00:00Z</updated>
+    <updated>2018-06-05T00:00:00Z</updated>
     
     <id>/</id>
         <entry>
-            <title>Third Blog Post</title>
-            <link href="/posts/third-blog-post/"/>
-            <updated>2025-02-15T00:00:00Z</updated>
-            <id>/posts/third-blog-post/</id>
+            <title>Load Balancing in the Cloud</title>
+            <link href="/posts/load-balancing-in-the-cloud/"/>
+            <updated>2018-06-05T00:00:00Z</updated>
+            <id>/posts/load-balancing-in-the-cloud/</id>
             <content type="html"><![CDATA[
-                <p>Welcome to my third blog post!</p>
-
-            ]]></content>
-        </entry>
-        <entry>
-            <title>Second Blog Post</title>
-            <link href="/posts/second-blog-post/"/>
-            <updated>2025-02-15T00:00:00Z</updated>
-            <id>/posts/second-blog-post/</id>
-            <content type="html"><![CDATA[
-                <p>Welcome to my second blog post!</p>
+                <p>Free Download: <a href="https://www.nginx.com/resources/library/load-balancing-in-the-cloud-aws-nlb-elb-nginx-plus/">Load Balancing in the Cloud, Practical Solutions with NGINX and AWS</a></p>
+<h1>About the Book</h1>
+<p>The use of redundant servers has long been a solution for meeting sudden spikes in demand, machine failures, and outages. Cloud services greatly reduce the cost and hassle of provisioning redundant equipment and load balancers and give you the ability to deal with separate network, application, and client-side loads. But today there are many options to consider, and you have to determine which cloud service (or services) will meet your unique needs.</p>
+<p>With this ebook, I deliver a practical guide to load balancing services in the cloud. In this dynamic environment, where machines are frequently provisioned and decommissioned to meet user demand, you need a load balancer that can intelligently distribute traffic. This ebook walks you through the strategy via several options, including the use of the NGINX software load balancer with AWS Network Load Balancer (AWS NLB) and global load balancing with AWS’ Route 53 offering.</p>
+<h1>Preface</h1>
+<p>This book is for engineers and technical managers looking to take advantage of the cloud in a way that requires a load balancing solution. I am using AWS as the example because it is widely used, and therefore will be the most useful to the most people. You’ll learn about load balancing in general, as well as AWS load balancers, AWS patterns, and the NGINX reverse proxy and load balancer. I’ve chosen to use NGINX as a software load balancer example because of its versatility and growing popularity. As adoption of NGINX grows, there are more people looking to learn about different ways they can apply the technology in their solutions. My goal is to help educate you on how you can craft a load balancing solution in the cloud that fits your needs without being prescriptive, but rather descriptive and informative.</p>
+<p>I wrote this text to complement the AWS Quick Start guide to NGINX Plus. I truly believe in NGINX as a capable application delivery platform, and AWS as an industry leading cloud platform. That being said, there are other solutions to choose from, such as: Google Cloud, Microsoft Azure, Digital Ocean, IBM Cloud, their respective platform native load balancers, HAProxy, the Apache HTTP Server with the mod_proxy module, and IIS with the URL Rewrite module. As a cloud consultant, I understand that each cloud application has different load balancing needs. I hope that the information in this book helps you design a solid solution that fits your performance, security, and availability needs, while being economically reasonable.</p>
+<p>As you read through keep your application architecture in mind. Compare and contrast the feature set you might need with the up-front and ongoing cost of building and managing the solution. Pay special attention to the automatic registration and deregistration of nodes with the load balancer. Even if you do not plan to auto scale today, it is wise to prepare with a load balancing solution that is capable of doing so to enable your future.</p>
 
             ]]></content>
         </entry>
         <entry>
             <title>AWS Batch</title>
-            <link href="/aws-batch/"/>
+            <link href="/posts/aws-batch/"/>
             <updated>2018-04-13T00:00:00Z</updated>
-            <id>/aws-batch/</id>
+            <id>/posts/aws-batch/</id>
             <content type="html"><![CDATA[
                 <h1>AWS Batch Example</h1>
 <p>Find the code on <a href="https://github.com/dejonghe/aws-batch-example">GitHub</a></p>
@@ -176,6 +173,101 @@
 </ul>
 </li>
 </ol>
+
+            ]]></content>
+        </entry>
+        <entry>
+            <title>cfn-boto-interface</title>
+            <link href="/posts/cfn-boto-interface/"/>
+            <updated>2018-04-12T00:00:00Z</updated>
+            <id>/posts/cfn-boto-interface/</id>
+            <content type="html"><![CDATA[
+                <h1><a href="https://github.com/dejonghe/cfn-boto-interface">cfn-boto-interface</a></h1>
+<h2>Note: This should no longer be used, in favor of AWS CDK.</h2>
+<h2>What is it?</h2>
+<p>Possibly the most dangerous thing I’ve ever written.</p>
+<p>This is python3.6 code that is intended to run inside of AWS Lambda. The Lambda Function is intended to be used as a CloudFormation Custom Resource. This Custom Resource takes properties that describe a set of commands to run. It allows you to look up data from the event source, response objects returned by other commands, modify lookups to cast to <code>int</code> or <code>str</code>, and also interpolate random strings.</p>
+<h2>Where is it?</h2>
+<p>GitHub: <a href="https://github.com/dejonghe/cfn-boto-interface">https://github.com/dejonghe/cfn-boto-interface</a></p>
+<h2>Why I wrote this</h2>
+<p>I often find myself writing custom resources for things that either are not yet supported by CloudFormation, or for things that seem like they will never be supported, like a lookup. Often these custom resources are just a few boto3 calls that create, update, and delete a given resource. I has started to look at spot fleets for running ECS clusters after the pricing model changed in March 2018. The EC2 Launch Template was not supported at that time and neither was the ability to use EC2 Launch Templates with a Spot Fleet built by CloudFormation. With that challenge I figured I had a couple custom resources to build and I thought about how I could abstract that as much as possible, and I think I found it. I decided to build a direct interface to boto3 through CloudFormation.</p>
+<p>Overall, I wrote this to aid in things such as quick lookups or utilizing new features and services before they get CloudFormation Support. It’s already working out for me. I tested it on Secrets Manager with in a week of the service being available and I’m able to retrieve secrets.</p>
+<h2>How is it used?</h2>
+<p><a href="https://github.com/dejonghe/cfn-boto-interface">The GitHub Repo</a> has more of a full rundown that includes building the zip, creating the Lambda Resource in CloudFormation, etc. You can use the pre built release package directly, as it’s a Zip file containing the code, cfn-response, and boto3==1.7.4. Here I’d just like to add an example and the high level documentation of what this object is made up of.</p>
+<h3>Example: Secret String fom Secret Manager</h3>
+<p>Note: Use GetAtt for secrets so that it doesn’t show up in CFN console as PhysicalResourceId</p>
+<pre><code class="language-yaml">  SecretString:
+    Type: Custom::FetchSecret
+    Properties:
+      # Reference to the Lambda Function that gets called
+      ServiceToken: !GetAtt 'BotoInterface.Arn'
+      # When a create event type is send to the lambda use this object
+      Create:
+        PhysicalResourceId: '!Create[0].VersionId' # Lookup and return secret when Ref'd
+        ResponseData:                   # Key,Value pairs for GetAtt to use
+          Secret: '!Create[0].SecretString'
+        Commands:
+          - Client: secretsmanager      # Boto3 client to use
+            Method: get_secret_value    # method to call on the boto3.client('secretsmanager') object
+            Arguments:                  # Keyword Arguments to pass to the method
+              SecretId: !Ref 'SecretId'
+      Update:
+        Replace: 'True'                 # If an update is called just run create again,
+                                        # CFN will send a delete on cleanup
+</code></pre>
+<h3>Custom Resource Properties</h3>
+<h4>Top level properties</h4>
+<ul>
+<li>ServiceToken: (Required) - Arn of the Lambda Resource</li>
+<li>Create: ActionObject, described below</li>
+<li>Update: ActionObject, described below</li>
+<li>Delete: ActionObject, described below</li>
+</ul>
+<h4>ActionObject</h4>
+<ul>
+<li>PhysicalResourceId: Physical Id of this resource to return to CloudFormation for this action. Can use <em>Lookups</em></li>
+<li>ResponseData: Dict of key,value pairs to return to CloudFormation for this resource for this action, for use in GetAtt. Can use <em>Lookups</em></li>
+<li>Commands: Array of CommandObjects</li>
+<li>Replace: (Update Only) - Bool, will re run create, if a different PhysicalId is returned CloudFormation will send a Delete when Cleaning Up</li>
+</ul>
+<h4>CommandObjects</h4>
+<ul>
+<li>Client: (Required) - Boto3 client name to use when creating a client example: ‘ec2’, or ‘secretsmanager’</li>
+<li>Method: (Required) - Method to call on the Boto3 client</li>
+<li>Arguments: Dict of key,value pairs to pass to the method as keyword arguments.</li>
+</ul>
+<h4>Lookups</h4>
+<p>Lookups are denoted with a <code>!</code> prefix. The lookups traverse dict objects by use of <code>.</code> notation</p>
+<ul>
+<li><code>!event</code>: Looks up a value in the event passed to the lambda from CloudFormation</li>
+<li><code>!Create[]</code>: (Create ActionObject Only) - Looks up a value from the return of the command at that index ran in the Create ActionObject</li>
+<li><code>!Update[]</code>: (Update ActionObject Only) - Looks up a value from the return of the command at that index ran in the Update ActionObject</li>
+<li><code>!Delete[]</code>: (Delete ActionObject Only) - Looks up a value from the return of the command at that index ran in the Delete ActionObject</li>
+</ul>
+<h5>Modifiers</h5>
+<p>If a lookup returns a value in a type that you need to cast you can use the modifiers after the lookup notation.</p>
+<ul>
+<li><code>!int</code>: Cast lookup to int</li>
+<li><code>!str</code>: Cast lookup to str</li>
+</ul>
+<h4>Interpolation</h4>
+<ul>
+<li><code>!random</code>: Interpolates a random 4 Alpha Numeric string</li>
+</ul>
+<h2>Conclusion</h2>
+<p>I was serious when I said this was dangerous, but then again it’s kind of cool. I hope others find use in it. If you have issues comment here or make an issue in GitHub. I’ll try to help out when I can.</p>
+
+            ]]></content>
+        </entry>
+        <entry>
+            <title>The NGINX Cookbook</title>
+            <link href="/posts/nginx-cookbook/"/>
+            <updated>2018-03-16T00:00:00Z</updated>
+            <id>/posts/nginx-cookbook/</id>
+            <content type="html"><![CDATA[
+                <h2><a href="https://www.nginx.com/resources/library/complete-nginx-cookbook/">The NGINX Cookbook</a></h2>
+<p>In 2016 I started writing for O’REILLY Media to produce The NGINX Cookbook. This is book was organized and released in three parts. The first part focued on load balancing on the modern web. The second, security and access. Lastly, a part about deployment and operations. This blog is not much more than a reference to the book. You can find the book for free at the link above.</p>
+<p>Over the years the book has been updated and we’re currently on the 3rd edition.</p>
 
             ]]></content>
         </entry></feed>
