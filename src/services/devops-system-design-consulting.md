@@ -1,9 +1,9 @@
 ---
 layout: services
 title: Expansive Labs
-url: expansivelabs.io
+url: devops-system-design-consulting
 name: "Dev Ops System Design Consulting"
-tags: [services, devops]
+tags: services
 body_class: base-blog
 permalink: "/services/devops-system-design-consulting/"
 ---
