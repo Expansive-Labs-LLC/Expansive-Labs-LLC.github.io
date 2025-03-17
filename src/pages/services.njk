@@ -109,7 +109,7 @@ permalink: "/services/"
               </div>
               <h2 class="text-white up mb-0">Feel the <br> Expansive Labs</h2>
 {% for service in collections.services %}
-<a href="{{ service.url }}" target="_blank" class="btn btn-outline-white btn-lg mt-3 up btn-round">Dev Ops System Design Consulting</a>{% endfor %}
+<a href="{{ service.url }}" target="_blank" class="btn btn-outline-white btn-lg mt-3 up btn-round">{{ service.data.name }}</a>{% endfor %}
             </div>
           </div>
         </div>
