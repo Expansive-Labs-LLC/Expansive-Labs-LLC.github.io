@@ -60,35 +60,34 @@ Coded by www.creative-tim.com
                 </p>
               </div>
               <div class="card card-plain">
-                <form role="form" id="contact-form" method="post" autocomplete="off">
+                <form id="contactForm" method="post" autocomplete="off">
                   <div class="card-body pb-2">
                     <div class="row">
                       <div class="col-md-6">
                         <label>Full Name</label>
                         <div class="input-group mb-4">
-                          <input class="form-control" placeholder="Full Name" aria-label="Full Name" type="text">
+                          <input type="name" id="name" class="form-control" placeholder="Full Name" aria-label="name">
                         </div>
                       </div>
                       <div class="col-md-6 ps-md-2">
                         <label>Email</label>
                         <div class="input-group">
-                          <input type="email" class="form-control" placeholder="info@expansivelabs.io">
+                          <input type="email" id="email" class="form-control" placeholder="info@expansivelabs.io">
                         </div>
                       </div>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
                       <label>How can we help you?</label>
-                      <textarea name="message" class="form-control" id="message" rows="6" placeholder="Describe your problem in at least 250 characters"></textarea>
+                      <textarea class="form-control" id="message" rows="6" placeholder="Describe your problem in at least 250 characters"></textarea>
                     </div>
                     <div class="row">
                       <div class="col-md-12 text-center">
-                        <form method="post" action="mailto:info@expansivelabs.io" >
-                        <input type="submit" value="Submit"/> 
-                          </form>
+                          <input type="submit" value="Submit"/>
                       </div>
                     </div>
                   </div>
                 </form>
+                <div id="response"></div>
               </div>
             </div>
           </div>
@@ -96,6 +95,34 @@ Coded by www.creative-tim.com
       </div>
     </div>
   </header>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      fetch('https://osqe3frjqf.execute-api.us-east-1.amazonaws.com/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        responseDiv.innerText = 'Message sent successfully!';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        responseDiv.innerText = 'Error sending message.';
+      });
+    });
+  </script>
 
   {% include "footer.njk" %}
 
