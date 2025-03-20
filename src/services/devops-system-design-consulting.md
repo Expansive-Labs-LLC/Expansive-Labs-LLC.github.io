@@ -56,4 +56,3 @@ Unlock the full potential of your software development and operations with our e
 
 Ready to take your DevOps practices to the next level? Contact us today for a consultation and discover how we can help you achieve your business goals.
 
-[Contact Us Button/Link]
