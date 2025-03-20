@@ -59,4 +59,3 @@ We provide tailored preparation services to ensure your organization is ready fo
 
 Ready to take the next step in securing your organization? Contact us for a free consultation and learn how we can help you achieve your security certification goals.
 
-[Contact Us Button/Link]
