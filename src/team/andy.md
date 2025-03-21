@@ -1,6 +1,6 @@
 ---
 layout: team-profile
-title: "Andrew Ford"
+title: "Andy Ford"
 role: "Information Technology"
 image: "/static/assets/img/andy1.png"
 bio: "In charge of networking and technology operations"

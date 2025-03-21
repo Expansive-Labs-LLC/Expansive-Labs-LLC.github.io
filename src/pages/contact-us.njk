@@ -1,0 +1,134 @@
+<!--
+=========================================================
+* Soft UI PRO - v1.0.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-design-system-pro
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
+  <link rel="canonical" href="https://appseed.us/ui-kit/soft-ui-design-system"/>
+
+  <title>
+     {{title}}
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/static/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="/static/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
+
+</head>
+
+<body class="contact-us">
+
+  {% include "navigation-sticky.njk" %}
+  
+  <header>
+    <div class="page-header section-height-85">
+      <div>
+        <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="/static/assets/img/expansiveLabsLogo5.jpg">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 d-flex justify-content-center flex-column">
+            <div class="card d-flex justify-content-center p-4 shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+              <div class="text-center">
+                <h3 class="text-gradient text-info">Contact us</h3>
+                <p class="mb-0">
+                  For further questions, including service inquiries, please email info@expansivelabs.io
+                  or contact us using the form below.
+                </p>
+              </div>
+              <div class="card card-plain">
+                <form id="contactForm" method="post" autocomplete="off">
+                  <div class="card-body pb-2">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Full Name</label>
+                        <div class="input-group mb-4">
+                          <input type="name" id="name" class="form-control" placeholder="Full Name" aria-label="name">
+                        </div>
+                      </div>
+                      <div class="col-md-6 ps-md-2">
+                        <label>Email</label>
+                        <div class="input-group">
+                          <input type="email" id="email" class="form-control" placeholder="info@expansivelabs.io">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-0 mt-md-0 mt-4">
+                      <label>How can we help you?</label>
+                      <textarea class="form-control" id="message" rows="6" placeholder="Describe your problem in at least 250 characters"></textarea>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                          <input type="submit" value="Submit"/>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div id="response"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      fetch('https://osqe3frjqf.execute-api.us-east-1.amazonaws.com/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        responseDiv.innerText = 'Message sent successfully!';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        responseDiv.innerText = 'Error sending message.';
+      });
+    });
+  </script>
+
+  {% include "footer.njk" %}
+
+  {% include "scripts.njk" %}
+
+  <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.0" type="text/javascript"></script>
+
+</body>
+</html>
