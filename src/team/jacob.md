@@ -13,3 +13,8 @@ facebook_url:
 
 # About Me
 
+With over 5 years of hands-on experience, Jacob has honed his skills as a proficient web developer. His journey spans from creating engaging web experiences to managing robust system infrastructures.
+
+As your go-to person for web development challenges, Jacob leverages his deep understanding of front-end and back-end technologies to craft dynamic applications. His expertise doesn't stop at coding; it extends into deploying sites seamlessly across various platforms.
+
+Jacob is dedicated to staying ahead in the ever-evolving landscape of web development, ensuring his skills are sharp and ready to tackle any project that comes his way. Whether you're looking for a collaborator or an innovative force in building your next great web project, Jacob Powell brings the expertise and passion to turn ideas into reality.
