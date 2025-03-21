@@ -11,7 +11,7 @@ Coded by www.creative-tim.com
  =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-{# <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,7 +39,7 @@ Coded by www.creative-tim.com
 
 </head>
 
-<body class="">
+<body class="{{ body_class }}">"
 
   {% include "navigation-sticky.njk" %}
   
@@ -53,10 +53,9 @@ Coded by www.creative-tim.com
           <div class="col-lg-7 d-flex justify-content-center flex-column">
             <div class="card d-flex justify-content-center p-4 shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
               <div class="text-center">
-                <h3 class="text-gradient text-info">Contact us</h3>
+                <h3 class="text-gradient text-info"> {{ header }} </h3>
                 <p class="mb-0">
-                  For further questions, including service inquiries, please email info@expansivelabs.io
-                  or contact us using the form below.
+                  {{ content|safe }}
                 </p>
               </div>
               <div class="card card-plain">
@@ -64,20 +63,20 @@ Coded by www.creative-tim.com
                   <div class="card-body pb-2">
                     <div class="row">
                       <div class="col-md-6">
-                        <label>Full Name</label>
+                        <label>{{ name }}</label>
                         <div class="input-group mb-4">
                           <input type="name" id="name" class="form-control" placeholder="Full Name" aria-label="name">
                         </div>
                       </div>
                       <div class="col-md-6 ps-md-2">
-                        <label>Email</label>
+                        <label>{{ email }}</label>
                         <div class="input-group">
                           <input type="email" id="email" class="form-control" placeholder="info@expansivelabs.io">
                         </div>
                       </div>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
-                      <label>How can we help you?</label>
+                      <label>{{ prompt }}</label>
                       <textarea class="form-control" id="message" rows="6" placeholder="Describe your problem in at least 250 characters"></textarea>
                     </div>
                     <div class="row">
@@ -129,6 +128,33 @@ Coded by www.creative-tim.com
   {% include "scripts.njk" %}
 
   <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.0" type="text/javascript"></script>
-
+  <!--  Google Maps Plugin    -->
+  <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.1" type="text/javascript"></script>
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
 </body>
-</html> #}
+</html>
