@@ -8,11 +8,14 @@ permalink: "/playlists/"
 <style>
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    justify-items: center;
-  }
+    
+}
+
+@media screen and (min-width: 768px) { 
+    .team-grid {
+        display: flex;
+    }
+}
 
   .team-card {
     background: white;
@@ -60,6 +63,8 @@ permalink: "/playlists/"
   .row.g-0 {
     margin: 0;
   }
+
+
 </style>
 <header class="header-2">
   <div class="page-header section-height-75 relative"
@@ -103,7 +108,7 @@ permalink: "/playlists/"
 
     <div class="row">
       {% for playlist in collections.playlists %}
-      <div class="d-flex align-items-stretch">
+      <div class=" team-grid mb-5">
         <div class="card card-profile card-plain">
           <div class="row g-0">
             <div class="col-lg-5 d-flex align-items-center">
