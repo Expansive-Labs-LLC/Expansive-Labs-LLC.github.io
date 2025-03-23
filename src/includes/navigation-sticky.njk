@@ -24,17 +24,15 @@
           <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0" id="navigation">
             <ul class="navbar-nav navbar-nav-hover ms-auto">
               <li class="nav-item dropdown dropdown-hover mx-2">
-
-              {# <li class="nav-item dropdown mx-2"> #}
                 <a class="nav-link dropdown-toggle font-weight-bold d-flex align-items-center justify-content-between"
-                  href="/services/" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  href="/services/" id="servicesDropdown" role="button">
                   Services
-                  <span class="ms-1">
-                    <img src="/static/assets/img/down-arrow-dark.svg">
+                  <span class="ms-1 d-none d-lg-inline">
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="dropdown arrow">
                   </span>
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <ul class="dropdown-menu d-lg-none" aria-labelledby="servicesDropdown">
                   <li><a class="dropdown-item" href="/services/architecture-consulting/">Architecture Consulting</a>
                   </li>
                   <li><a class="dropdown-item" href="/services/managed-services/">Managed Services</a></li>
@@ -50,9 +48,10 @@
               
 
 
-              <div class="dropdown-menu dropdown-menu-animation dropdown-xl p-3 border-radius-xl mt-0 mt-lg-3"
+              <div class="dropdown-menu dropdown-menu-animation dropdown-xl p-3 border-radius-xl mt-0 mt-lg-3 d-none d-lg-block"
                 aria-labelledby="servicesDropdown">
                 <div class="row d-none d-lg-block">
+          
                   <div class="col-12 px-4 py-2">
                     <div class="row">
                       <div class="col-6 position-relative">
@@ -225,91 +224,22 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownLink = document.getElementById("servicesDropdown");
+
+    // Only attach click for mobile
+    if (window.innerWidth < 992) {
+      dropdownLink.addEventListener("click", function (e) {
+        e.preventDefault(); // still allow navigation if needed
+        const dropdownMenu = this.nextElementSibling;
+
+        if (dropdownMenu && dropdownMenu.classList.contains("dropdown-menu")) {
+          dropdownMenu.classList.toggle("show");
+        }
+      });
+    }
+  });
+</script>
 
 
-
-{# <div class="container position-sticky z-index-sticky top-0">
-  <div class="row">
-    <div class="col-12">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light blur blur-rounded top-0 z-index-3 shadow position-absolute mt-4 my-3 py-2 start-0 end-0 mx-4">
-        <div class="container-fluid">
-
-          <!-- Brand -->
-          <a class="navbar-brand font-weight-bolder ms-sm-3" href="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
-            Expansive Labs
-          </a>
-
-          <!-- Hamburger Button -->
-          <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- Navigation Items -->
-          <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0" id="navigation">
-            <ul class="navbar-nav navbar-nav-hover ms-auto">
-
-              <!-- SERVICES: mobile dropdown + desktop mega menu -->
-              <li class="nav-item dropdown dropdown-hover mx-2">
-                <a class="nav-link dropdown-toggle font-weight-bold d-flex align-items-center justify-content-between" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Services
-                  <span class="ms-1">
-                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow">
-                  </span>
-                </a>
-
-                <!-- Mobile Dropdown -->
-                <ul class="dropdown-menu dropdown-sm" aria-labelledby="servicesDropdown">
-                  <li><a class="dropdown-item" href="/services/architecture-consulting/">Architecture Consulting</a></li>
-                  <li><a class="dropdown-item" href="/services/managed-services/">Managed Services</a></li>
-                  <li><a class="dropdown-item" href="/services/devops-system-design-consulting/">Systems Design Consulting</a></li>
-                  <li><a class="dropdown-item" href="/services/managed-devops-tooling/">Managed DevOps Tooling</a></li>
-                  <li><a class="dropdown-item" href="/services/project-management/">Agile and DevOps Project Management</a></li>
-                  <li><a class="dropdown-item" href="/services/software-development/">Software Development</a></li>
-                  <li><a class="dropdown-item" href="/services/security-certification-preperation/">Security Certification Preparation</a></li>
-                </ul>
-
-                <!-- Desktop Mega Menu -->
-                <div class="dropdown-menu dropdown-menu-animation dropdown-xl p-3 border-radius-xl mt-0 mt-lg-3 d-none d-lg-block" aria-labelledby="servicesDropdown">
-                  <div class="row">
-                    <div class="col-6">
-                      <h6 class="dropdown-header text-dark font-weight-bolder">Cloud Infrastructure</h6>
-                      <a href="/services/architecture-consulting/" class="dropdown-item">Architecture Consulting</a>
-                      <a href="#" class="dropdown-item">Platform Engineering</a>
-                      <a href="/services/managed-services/" class="dropdown-item">Managed Services</a>
-
-                      <h6 class="dropdown-header text-dark font-weight-bolder mt-3">DevOps</h6>
-                      <a href="/services/devops-system-design-consulting/" class="dropdown-item">System Design Consulting</a>
-                      <a href="/services/managed-devops-tooling/" class="dropdown-item">Managed DevOps Tooling</a>
-                      <a href="/services/project-management/" class="dropdown-item">Agile and DevOps Project Management</a>
-                    </div>
-                    <div class="col-6">
-                      <h6 class="dropdown-header text-dark font-weight-bolder">Software Development</h6>
-                      <a href="/services/software-development/" class="dropdown-item">Software Development</a>
-
-                      <h6 class="dropdown-header text-dark font-weight-bolder mt-3">Security</h6>
-                      <a href="/services/security-certification-preperation/" class="dropdown-item">Security Certification Preparation</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <!-- Other Menu Items -->
-              <li class="nav-item mx-2">
-                <a class="nav-link font-weight-bold" href="/about-us/">About Us</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link font-weight-bold" href="/team/">Team</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link font-weight-bold" href="/playlists/">Playlists</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link font-weight-bold" href="/blog/">Blog</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </div>
-</div> #}
