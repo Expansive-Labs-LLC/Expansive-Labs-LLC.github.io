@@ -8,7 +8,8 @@ permalink: "team/jacob/"
 tags: ["webDevTeam", "Jacob"]
 github_url: "https://github.com/JP0121"
 twitter_url: 
-facebook_url: 
+facebook_url:
+linkedin_url: "https://www.linkedin.com/in/jacob-powell-1aa2a4355/" 
 ---
 
 # About Me
