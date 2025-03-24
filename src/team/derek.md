@@ -9,6 +9,7 @@ tags: ["founders", "Derek"]
 github_url: "https://github.com/dejonghe"
 twitter_url: 
 facebook_url:
+linkedin_url: https://www.linkedin.com/in/derekdejonghe/
 ---
 
 **Derek DeJonghe: A Journey of Innovation and Cloud Expertise**
