@@ -1,3 +1,12 @@
+---
+layout: engineering-practice
+title: Standard Operating Procedure
+url: SOP
+name: "SOP"
+tags: SOP
+body_class: base-blog
+permalink: "/engineering-practice/SOP/"
+---
 ## DevOps & Agile SOP for Self-Sovereign Identity Management (SSIM) - Trunk-Based Development
 
 **Vision:** To drive widespread adoption of our SSIM solution by leveraging DevOps principles, Agile methodologies, and open-source contributions, while minimizing developer overhead and maximizing efficiency.

@@ -1,3 +1,12 @@
+---
+layout: engineering-practice
+title: DevOps Procesess
+url: devops
+name: "DevOps Processes"
+tags: devops
+body_class: base-blog
+permalink: "/engineering-practice/devops/"
+---
 ## Core Fundamentals of DevOps Processes
 
 DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery with high software quality. Here are the core fundamentals:
