@@ -1,11 +1,11 @@
 ---
 layout: services
 title: Expansive Labs
-url: security-certification-preperation
-name: "Security Certification Preperation"
+url: security-certification-preparation
+name: "Security Certification Preparation"
 tags: services
 body_class: base-blog
-permalink: "/services/security-certification-preperation/"
+permalink: "/services/security-certification-preparation/"
 ---
 # Security Certification Preparation: NIST, SOC 2, ISO 27001
 
