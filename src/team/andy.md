@@ -12,6 +12,6 @@ facebook_url:
 linkedin_url: https://www.linkedin.com/in/andy-ford/
 ---
 
-# About Me
+**Andy Ford**
 
 JP did a thing
