@@ -12,7 +12,7 @@ facebook_url:
 linkedin_url: https://www.linkedin.com/in/derekdejonghe/
 ---
 
-**Derek DeJonghe:
+**Derek DeJonghe:**
 **A Journey of Innovation and Cloud Expertise**
 
 Derek DeJonghe's passion for technology and innovation began early. Even as a young entrepreneur, Derek was already building his first business at the age of 10, providing lawn care and snow removal services to his community using his father's tractor. This early experience instilled in him a strong work ethic, a knack for problem-solving, and the drive to create solutions.
