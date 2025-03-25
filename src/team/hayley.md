@@ -13,7 +13,7 @@ facebook:url:
 linkedin_url: https://www.linkedin.com/in/hayley-blackman-5421b2148/
 ---
 
-**Hayley Blackman:**
+**Hayley Blackman**
 **Creating thoughtful digital experiences—from front-end design to DevOps automation.**
 
 Hayley brings a multidisciplinary perspective to tech, backed by degrees in Computer Information Sciences from Wayne County Community College and Healthcare Technology and Systems from Ultimate Medical Academy. Over the past year and a half, she has focused on mastering modern DevOps workflows—diving deep into GitHub best practices, AWS management, and building custom GitHub Actions to streamline and automate development processes.
