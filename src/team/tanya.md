@@ -13,3 +13,4 @@ linkedin_url: https://www.linkedin.com/in/tanya-atanasova-73a44510b
 
 **Tanya Atanasova Architecture and Design**
 
+Tanya brings a breath of experience to the team. Starting in application development and moving to cloud system architecture, she's one of our most senior and experienced engineers. 
