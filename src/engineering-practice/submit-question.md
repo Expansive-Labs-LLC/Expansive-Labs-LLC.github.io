@@ -11,7 +11,7 @@ permalink: "/engineering-practice/submit-question/"
 
 Presenting questions effectively, especially to architects or management, requires a structured approach. This process ensures clarity, efficiency, and respect for everyone's time. Here's a breakdown, designed to be used with screen and audio recording:
 
-**I. Preparation (Before Recording):**
+## Preparation (Before Recording)
 
 1.  **Clearly Define the Problem/Question:**
     * What is the specific issue you're facing?
@@ -34,7 +34,7 @@ Presenting questions effectively, especially to architects or management, requir
     * Time yourself to ensure you stay within the allotted time.
     * Practice with a colleague to get feedback on your clarity and effectiveness.
 
-**II. Recording the Presentation (Screen and Audio):**
+## Recording the Presentation (Screen and Audio)
 
 1.  **Set Up Your Recording Environment:**
     * Ensure a quiet and distraction-free environment.
@@ -64,7 +64,7 @@ Presenting questions effectively, especially to architects or management, requir
     * Use zoom or highlighting tools to draw attention to important details.
     * Ensure that text and visuals are clearly visible.
 
-**III. Post-Recording (After Recording):**
+## Post-Recording (After Recording)
 
 1.  **Review the Recording:**
     * Watch and listen to your recording to ensure clarity and accuracy.
@@ -82,7 +82,7 @@ Presenting questions effectively, especially to architects or management, requir
     * Schedule a meeting if necessary to discuss the issue in more detail.
     * If no response is given in a reasonable time frame, send a polite follow up message.
 
-**Benefits of Using Screen and Audio Recording:**
+## Benefits of Using Screen and Audio Recording
 
 * **Asynchronous Communication:** Allows architects and managers to review the information at their convenience.
 * **Clear and Concise Presentation:** Ensures that all relevant information is presented clearly and accurately.

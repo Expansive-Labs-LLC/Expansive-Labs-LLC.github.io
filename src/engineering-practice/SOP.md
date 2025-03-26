@@ -7,13 +7,17 @@ tags: SOP
 body_class: base-blog
 permalink: "/engineering-practice/SOP/"
 ---
-## DevOps & Agile SOP for Self-Sovereign Identity Management (SSIM) - Trunk-Based Development
+# DevOps & Agile SOP
 
-**Vision:** To drive widespread adoption of our SSIM solution by leveraging DevOps principles, Agile methodologies, and open-source contributions, while minimizing developer overhead and maximizing efficiency.
+## Vision
+To drive widespread adoption of DevOps principles, Agile methodologies, and open-source contributions, while minimizing developer overhead and maximizing efficiency.
 
-**Tooling Consolidation:** Jira, Confluence, GitHub.
+## Tooling Consolidation
+* Jira
+* Confluence
+* GitHub
 
-**I. Agile & Task Management (Jira):**
+## Agile & Task Management (Jira)
 
 * **Task Breakdown:**
     * User Stories: Define features from a user perspective.
@@ -28,7 +32,7 @@ permalink: "/engineering-practice/SOP/"
     * Use story points for estimation, facilitating velocity tracking and sprint planning.
     * Regular sprint planning and review meetings to ensure alignment and progress.
 
-**II. Source Code & Package Management (GitHub) - Trunk-Based Development:**
+## Source Code & Package Management (GitHub) - Trunk-Based Development
 
 * **Trunk-Based Development:**
     * All developers commit directly to the `main` branch.
@@ -48,7 +52,7 @@ permalink: "/engineering-practice/SOP/"
     * Encourage community contributions and provide timely support.
     * Actively engage with the open source community, and follow W3C specifications.
 
-**III. Automation & Integration:**
+## Automation & Integration
 
 * **Jira-GitHub Integration:**
     * Automate Jira ticket status transitions based on Git actions (e.g., commit, pull request).
@@ -64,7 +68,7 @@ permalink: "/engineering-practice/SOP/"
     * Use Jira dashboards to monitor sprint progress and identify bottlenecks.
     * Utilize automated feedback loops to identify areas for process improvement.
 
-**IV. Knowledge Management (Confluence):**
+## Knowledge Management (Confluence)
 
 * **Centralized Documentation:**
     * Maintain comprehensive documentation in Confluence, including API specifications, SDK usage guides, and troubleshooting information.
@@ -74,7 +78,7 @@ permalink: "/engineering-practice/SOP/"
     * Encourage cross-team collaboration and knowledge sharing through Confluence.
     * Use Confluence for meeting notes, project plans, and architectural decisions.
 
-**V. Process Improvement & Feedback:**
+## Process Improvement & Feedback
 
 * **Regular Retrospectives:**
     * Conduct regular sprint retrospectives to identify areas for improvement.
@@ -86,7 +90,7 @@ permalink: "/engineering-practice/SOP/"
     * Establish feedback loops with integration partners and the open-source community.
     * Use feedback to improve API design, SDK functionality, and documentation.
 
-**VI. Benefits:**
+## Benefits
 
 * **Reduced Developer Overhead:** Automation of routine tasks frees up developers to focus on core product development.
 * **Accelerated Development Cycles:** CI/CD pipelines and trunk-based development enable faster releases.

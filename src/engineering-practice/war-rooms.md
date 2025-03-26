@@ -12,7 +12,7 @@ permalink: "/engineering-practice/war-rooms/"
 The "war room" meeting style, in the context of engineering resolving an urgent issue, is a focused, intensive, and collaborative approach designed to rapidly diagnose, troubleshoot, and resolve critical problems. It's characterized by bringing together all relevant stakeholders into a single, dedicated space (physical or virtual) to work collectively until the issue is resolved.
 
 ## Description and Documentation:
-cd  
+
 * **Purpose:**
     * To accelerate problem resolution in high-stakes, time-sensitive situations.
     * To ensure clear communication and coordination among all involved parties.
