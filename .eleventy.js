@@ -31,18 +31,23 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginRss)
     eleventyConfig.addPlugin(pluginNavigation)
     eleventyConfig.addPlugin(readingTime)
+
+
+    // Returns  items, sorted by display order
+    eleventyConfig.addCollection('playlists', (collection) => {
+	    return collection
+		    .getFilteredByGlob('./src/playlists/*.md')
+    });
+    // return service in services collection
     eleventyConfig.addCollection('services', (collection) => {
         return collection
           .getFilteredByGlob('./src/services/*.md')
-          .sort((a,b) => (Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1));
-    });
-    eleventyConfig.addCollection('featuredServices', (collection) => {
-        return collection
-            .getFilteredByGlob('./src/services/*.md')
-            .sort((a, b) => (Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1))
-            .filter((x) => x.data.featured);
     });
 
+    eleventyConfig.addCollection('contactus', (collection) => {
+        return collection
+          .getFilteredByGlob('./src/contact-us/*.md')
+    });
 
     // Filters
     Object.keys(filters).forEach((filterName) => {
