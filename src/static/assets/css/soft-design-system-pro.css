@@ -20127,7 +20127,7 @@ pre[class*="language-"] {
 }
 
 .card.card-background.card-background-mask-primary:after {
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+  background-image: linear-gradient(310deg, #54B4D3 0%, #333399 100%);
   opacity: .85;
 }
 
