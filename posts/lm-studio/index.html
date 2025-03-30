@@ -12,6 +12,10 @@ Coded by www.creative-tim.com
  =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +27,7 @@ Coded by www.creative-tim.com
   <link rel="canonical" href="https://appseed.us/ui-kit/soft-ui-design-system" />
 
   <title>
-  Deep Dive Into LM Studio 
+    Expansive Labs | Deep Dive Into LM Studio
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -327,39 +331,47 @@ Coded by www.creative-tim.com
 
 
 
-  <header class="header-2">
-    <div class="page-header section-height-75 relative"
-      style="background-image: url('/static/assets/img/expansiveBlog6.jpg')">
-      <div class="position-absolute w-100 z-index-1 bottom-0">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g class="moving-waves">
-            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
-            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
-            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
-            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
-          </g>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div style="margin-top:150px">
-            <div class="text-center mx-auto">
-              <h1 class="text-white pt-3 mt-n5">
+
+  <header class="header-2 position-relative">
+      <div class="page-header section-height-75 relative"
+        style="background-image: url('/static/assets/img/expansiveBlog6.jpg'); background-size: cover; bacckground-position: center;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center mx-auto ">
+              <h3 class="text-white fadeIn1 fadeInBottom"></h3>
+              <h1 class="text-white" style="filter: drop-shadow(4px 6px 8px rgba(106,168,179,0.6))">
                 Deep Dive Into LM Studio
               </h1>
-              <div class="container">
-                <div class="row">
+              <h2 class="text-white" style="filter: drop-shadow(2px 4px 6px rgba(106,168,179,0.6))">
+                Jacob Powell
+                </h2>
+            </div>
+          </div>
+        </div>
+        <div class="position-absolute w-100 z-index-1 bottom-0">
+          <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="moving-waves">
+              <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+              <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+              <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+              <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
 
-                  <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <h2
-                      class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">
-                      <h2>Level Up Your Open Source Contributions: A Deep Dive into LM Studio</h2>
+    <div class="container mt-sm-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card text-dark card-body blur px-sm-5 shadow-lg py-sm-5">
+               <h2>Level Up Your Open Source Contributions: A Deep Dive into LM Studio</h2>
 <p>As someone deeply involved in developing and nurturing open-source communities, I’m always looking for tools that boost my productivity and help me engage more effectively. Recently, I’ve discovered a game-changer: <strong>LM Studio</strong>.  It’s allowed me to run powerful Large Language Models (LLMs) <em>locally</em> on my machine, opening up exciting possibilities for everything from code generation and documentation to community moderation and content creation. In this post, I’ll walk you through setting up LM Studio and how it’s become an integral part of my workflow.</p>
 <h3>Why Run LLMs Locally? The Open Source Advantage</h3>
 <p>You might be wondering why bother with local LLMs when there are so many cloud-based options available. For me, the benefits are significant, especially within the open-source context:</p>
@@ -417,23 +429,11 @@ Coded by www.creative-tim.com
 </ul>
 <h3>Conclusion</h3>
 <p>LM Studio has been a game-changer for my open-source work. By bringing the power of LLMs to my local machine, I’ve gained increased privacy, cost savings, and flexibility.  If you’re involved in open-source development or community management, I highly recommend giving it a try. It might just unlock new levels of productivity and creativity for you too!</p>
-</h2>
-
-                  </div>
-                </div>
-
-              </div>
-
+ 
             </div>
           </div>
-
         </div>
       </div>
-    </div>
-    </div>
-
-  </header>
-
 
   
   
@@ -507,7 +507,6 @@ Coded by www.creative-tim.com
       </div>
     </div>
   </footer>
-
 
   <script src="/static/assets/js/core/popper.min.js"></script>
 <script src="/static/assets/js/core/bootstrap.min.js"></script>
