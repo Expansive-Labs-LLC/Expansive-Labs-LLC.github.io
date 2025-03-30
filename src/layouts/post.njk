@@ -12,6 +12,10 @@ Coded by www.creative-tim.com
  =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +27,7 @@ Coded by www.creative-tim.com
   <link rel="canonical" href="https://appseed.us/ui-kit/soft-ui-design-system" />
 
   <title>
-  {{ title }} 
+    Expansive Labs | {{ title }}
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -43,58 +47,50 @@ Coded by www.creative-tim.com
 <body class="{{ body_class }}">
 
   {% include "navigation.njk" %}
-  <header class="header-2">
-    <div class="page-header section-height-75 relative"
-      style="background-image: url('/static/assets/img/expansiveBlog6.jpg')">
-      <div class="position-absolute w-100 z-index-1 bottom-0">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g class="moving-waves">
-            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
-            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
-            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
-            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
-            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
-            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
-          </g>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div style="margin-top:150px">
-            <div class="text-center mx-auto">
-              <h1 class="text-white pt-3 mt-n5">
+
+  <header class="header-2 position-relative">
+      <div class="page-header section-height-75 relative"
+        style="background-image: url('/static/assets/img/expansiveBlog6.jpg'); background-size: cover; bacckground-position: center;">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center mx-auto ">
+              <h3 class="text-white fadeIn1 fadeInBottom"></h3>
+              <h1 class="text-white">
                 {{title}}
               </h1>
-              <div class="container">
-                <div class="row">
-
-                  <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <h2
-                      class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">
-                      {{ content | safe }}</h2>
-
-                  </div>
-                </div>
-
-              </div>
-
             </div>
           </div>
-
+        </div>
+        <div class="position-absolute w-100 z-index-1 bottom-0">
+          <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+              <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="moving-waves">
+              <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+              <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+              <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+              <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+              <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+              <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+            </g>
+          </svg>
         </div>
       </div>
-    </div>
-    </div>
+    </header>
 
-  </header>
-
+    <div class="container mt-sm-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card text-dark card-body blur px-sm-5 shadow-lg py-sm-5">
+               {{ content|safe }} 
+            </div>
+          </div>
+        </div>
+      </div>
 
   {% include "footer.njk" %}
-
   {% include "scripts.njk" %}
 
   <!--  Google Maps Plugin    -->

@@ -1,7 +1,7 @@
 ---
 title: "AWS Batch"
 date: "2018-04-13"
-layout: "post.njk"
+layout: post
 image: "/static/images/blog1.jpg"
 permalink: "/posts/aws-batch/"
 tags: [blog, aws, batch, boto, cloudformation, lambda ]
