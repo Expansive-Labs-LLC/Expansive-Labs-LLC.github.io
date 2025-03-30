@@ -1,7 +1,7 @@
 ---
 title: "Deep Dive Into LM Studio"
 date: "2025-03-27"
-layout: "post.njk"
+layout: post
 image: "/static/images/blog1.jpg"
 permalink: "/posts/lm-studio/"
 tags: [blog, LLM, AI, local server]
