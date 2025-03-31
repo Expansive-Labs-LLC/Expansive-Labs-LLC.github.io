@@ -11,28 +11,31 @@ permalink: "/blog/"
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="page-header section-height-75 m-3 border-radius-xl" style="background-image: url('/static/assets/img/testTubes.jpg');">
-            <span class="mask bg-gradient-dark"></span>
+          <div class="page-header section-height-75 m-3 border-radius-xl" style="background-image: url('/static/assets/img/expansiveBlog3.jpg');">
+            <span class="bg-gradient-light"></span>
             <div class="container">
               <div class="row">
                 <div class="col-lg-6 my-auto">
-                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Pricing Plans</h4>
-                  <h1 class="text-white fadeIn2 fadeInBottom">Work with the rockets</h1>
-                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Wealth creation is an evolutionarily recent positive-sum game. Status is an old zero-sum game. Those attacking wealth creation are often just seeking status.</p>
+                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Featured Blog:</h4>
+                  <h1 class="text-white fadeIn2 fadeInBottom">AWS Batch</h1>
+                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">This example demonstrates how to deploy a simple batch workflow using Amazon Batch, along with CloudFormation, AWS Lambda, Docker,
+                     and S3 bucket triggers. It showcases a deployable artifact proof-of-concept rather than prescribing an ideal approach to batch processing</p> <a href="/posts/aws-batch/" class="text-white">Read more</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
-          <div class="page-header section-height-75 m-2 border-radius-xl" style="background-image: url('/static/assets/img/blog-01.png');">
+          <div class="page-header section-height-75 m-2 border-radius-xl" style="background-image: url('/static/assets/img/expansiveBlog4.jpg');">
             <span class=" bg-gradient-light"></span>
             <div class="container">
               <div class="row">
                 <div class="col-lg-6 my-auto">
                   <h4 class="text-white font-weight-bolder mb-0 fadeIn1 fadeInBottom">Featured Blog:</h4>
-                  <h1 class="text-white fadeIn2 fadeInBottom">blog title</h1>
-                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">tagline</p>
+                  <h1 class="text-white fadeIn2 fadeInBottom">LM Studio</h1>
+                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">💡 Transform Your Open-Source Contributions with LM Studio: Learn how running Large Language Models (LLMs) locally on your machine enhances
+                    productivity, privacy, and creativity in open-source development. Discover three powerful models—Dolphin, Deepseek, and Gemma—that streamline tasks like documentation, code assistance, and community
+                     support.</p> <a href="/posts/lm-studio/" class="text-white">Read more</a>
                 </div>
               </div>
             </div>
@@ -40,12 +43,12 @@ permalink: "/blog/"
         </div>
         <div class="carousel-item">
           <div class="page-header section-height-75 m-3 border-radius-xl" style="background-image: url('/static/assets/img/blog-02.jpg');">
-            <span class="mask bg-gradient-dark"></span>
+            <span class="bg-gradient-light"></span>
             <div class="container">
               <div class="row">
                 <div class="col-lg-6 my-auto">
-                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">TECH</h4>
-                  <h1 class="text-white fadeIn2 fadeInBottom">Featured Blog</h1>
+                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Featured Blog:</h4>
+                  <h1 class="text-white fadeIn2 fadeInBottom">blog title</h1>
                   <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">meow meow meow</p>
                 </div>
               </div>
@@ -72,7 +75,7 @@ permalink: "/blog/"
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card card-background align-items-start h-100">
           <div class="full-background" 
-               style="background-image: url('{{ post.data.image | default("https://via.placeholder.com/400") }}');">
+               style="background-image: url('/static/assets/img/expansiveBlog9.jpg');">
           </div>
           <div class="card-body z-index-3">
             <div class="icon icon-md">
@@ -92,7 +95,7 @@ permalink: "/blog/"
               <a href="{{ post.url }}" class="text-white">Read more</a>
             </p>
           </div>
-          <span class="mask bg-primary border-radius-xl z-index-2 opacity-6"></span>
+          <span class="mask bg-info border-radius-xl z-index-2 opacity-2"></span>
         </div>
       </div>
     {% endfor %}

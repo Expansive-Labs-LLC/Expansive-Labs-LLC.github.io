@@ -7,8 +7,9 @@ bio: "Building the site"
 permalink: "team/kasey/"
 tags: ["webDevTeam", "Kasey"]
 github_url: "https://github.com/Mother7Goose"
+linkedin_url: https://www.linkedin.com/in/kasey-garant-653223198/
 ---
 
-# About Me
+**Kasey FitzPatrick**
 
 Kaseys about me

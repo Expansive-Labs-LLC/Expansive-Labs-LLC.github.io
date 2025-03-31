@@ -1,5 +1,6 @@
 ---
 title: Load Balancing in the Cloud
+layout: post
 date: "2018-06-05"
 tags: [ blog, nginx, books ]
 permalink: "/posts/load-balancing-in-the-cloud/"

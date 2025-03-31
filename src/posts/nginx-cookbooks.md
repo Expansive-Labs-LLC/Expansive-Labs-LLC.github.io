@@ -1,6 +1,7 @@
 ---
 title: The NGINX Cookbook
 date: "2018-03-16"
+layout: post
 tags: [ blog, nginx, books ]
 permalink: "/posts/nginx-cookbook/"
 authors: Derek DeJonghe

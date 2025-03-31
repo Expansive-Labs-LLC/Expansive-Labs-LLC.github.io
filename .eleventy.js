@@ -44,6 +44,11 @@ module.exports = function (eleventyConfig) {
           .getFilteredByGlob('./src/services/*.md')
     });
 
+    eleventyConfig.addCollection('contactus', (collection) => {
+        return collection
+          .getFilteredByGlob('./src/contact-us/*.md')
+    });
+
     // Filters
     Object.keys(filters).forEach((filterName) => {
         eleventyConfig.addFilter(filterName, filters[filterName])
