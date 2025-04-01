@@ -35,7 +35,7 @@
         "@babel/preset-env": "^7.11.0",
         "babel-loader": "^8.2.2",
         "clean-css": "^4.2.3",
-        "critical": "^2.0.3",
+        "critical": "^7.2.1",
         "cssesc": "^3.0.0",
         "del-cli": "^3.0.1",
         "eleventy-plugin-reading-time": "^0.0.1",
