@@ -53,10 +53,19 @@ Coded by www.creative-tim.com
                 <div class="row">
 
                   <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <h2
-                      class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">
-                      {{ content | safe }}</h2>
-
+                    <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+                      {% if image %}
+                      <img src="{{ image }}" alt="Photo of {{ title }}" class="img-fluid rounded-circle shadow mb-4"
+                        style="max-width: 200px;">
+                      {% endif %}
+                      <h2 class="text-dark text-gradient text-primary mb-0">
+                        {{ title }}
+                      </h2>
+                      <h4 class="text-secondary mb-4">{{ role }}</h4>
+                      <div class="text-dark">
+                        {{ content | safe }}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
