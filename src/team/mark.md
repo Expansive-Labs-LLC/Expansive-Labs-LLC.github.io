@@ -11,7 +11,6 @@ twitter_url:
 facebook_url:
 ---
 
-**Mark Zimmerman:**
 **The Metaphor of the Flowing Container: Giving and Receiving**
 
 **Introduction:**

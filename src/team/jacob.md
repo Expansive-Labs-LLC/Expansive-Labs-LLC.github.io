@@ -12,7 +12,6 @@ facebook_url:
 linkedin_url: "https://www.linkedin.com/in/jacob-powell-1aa2a4355/" 
 ---
 
-**Jacob Powell**
 **Full-stack developer. Infrastructure expert. Problem solver.**
 
 With over 5 years of hands-on experience, Jacob has honed his skills as a proficient web developer. His journey spans from creating engaging web experiences to managing robust system infrastructures.
