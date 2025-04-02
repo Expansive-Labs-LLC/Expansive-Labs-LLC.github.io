@@ -4,7 +4,7 @@ title: Submitting a Question
 url: submit-question
 name: "Submitting a Question"
 tags: submitquestuon
-body_class: base-blog
+# body_class: base-blog
 permalink: "/engineering-practice/submit-question/"
 ---
 ## Productive Question Presentation: A Structured Process
