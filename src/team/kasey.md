@@ -10,6 +10,5 @@ github_url: "https://github.com/Mother7Goose"
 linkedin_url: https://www.linkedin.com/in/kasey-garant-653223198/
 ---
 
-**Kasey FitzPatrick**
 
 Kaseys about me
