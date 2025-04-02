@@ -7,22 +7,6 @@ tags: services
 body_class: base-blog
 permalink: "/services/platform-engineering/"
 ---
-<style>
-    @media (max-width: 575.98px) {
-        h1 {
-            font-size: 30px;
-        }
-        h2 {
-            font-size: 20px;
-        }
-        ul {
-            font-size: 15px;
-        }
-        li {
-            text-align:left;
-        }
-    }
-</style>
 
 # Cloud Infrastructure Platform Engineering
 
