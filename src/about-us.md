@@ -5,6 +5,24 @@ permalink: "/about-us/"
 tags: aboutUs
 body_class: presentation-page
 ---
+
+<style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
 # Overview
 Democratizing scientific inquiry, enabling individuals to become researchers of their own lives. Let's break down the key elements and explore the possibilities and challenges.
 
