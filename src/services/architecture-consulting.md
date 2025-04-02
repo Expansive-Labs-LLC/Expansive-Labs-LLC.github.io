@@ -7,7 +7,24 @@ tags: services
 body_class: base-blog
 permalink: "/services/architecture-consulting/"
 ---
-# Cloud Infrastructure Architecture Consulting
+<style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
+# Architecture Consulting
 
 Unlock the full potential of cloud computing with our expert Cloud Infrastructure Architecture Consulting services. We help businesses design, implement, and optimize cloud solutions that drive growth, efficiency, and innovation.
 
