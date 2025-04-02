@@ -36,7 +36,11 @@ Coded by www.creative-tim.com
   <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
-
+<style>
+.overlay-image {
+    z-index: 10;
+}
+</style>
 </head>
 
 <body class="">
@@ -431,24 +435,33 @@ Coded by www.creative-tim.com
               <div class="container">
                 <div class="row">
 
-                  <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+                  <div class="position-relative">
                       
-                      <img src="/static/assets/img/Hayley1.jpg" alt="Photo of Hayley Blackman" class="img-fluid rounded-circle shadow mb-4"
-                        style="max-width: 200px;">
+                          <img src="/static/assets/img/Hayley1.jpg"
+                              alt="Photo of Hayley Blackman"
+                              class="position-absolute top: -10 start-50 translate-middle-x rounded shadow overlay-image"
+                              style="max-width: 200px; top: -80px;">
                       
-                      <h2 class="text-dark text-gradient text-primary mb-0">
-                        Hayley Blackman
-                      </h2>
-                      <h4 class="text-secondary mb-4">Co-Founder</h4>
-                      <div class="text-dark" style="text-align: left; justify-content: flex-start;">
-                        <p><strong>Creating thoughtful digital experiences—from front-end design to DevOps automation.</strong></p>
+                  <div class="card card-body blur text-md-left text-center px-sm-3 shadow-lg mt-sm-5 py-sm-0">
+                        
+
+                      <div class="card card-body blur text-md-left text-center mb-sm-3 px-sm-5 shadow-lg mt-sm-3 py-sm-0">
+                          <h2 class="text-dark text-gradient text-primary mb-0 mt-7">
+                              Hayley Blackman
+                          </h2>
+                          <h4 class="text-secondary mb-4">Co-Founder</h4>
+                            <div class="text-dark" style="text-align: left; justify-content: flex-start;">
+                                <p><strong>Creating thoughtful digital experiences—from front-end design to DevOps automation.</strong></p>
 <p>Hayley brings a multidisciplinary perspective to tech, backed by degrees in Computer Information Sciences from Wayne County Community College and Healthcare Technology and Systems from Ultimate Medical Academy. Over the past year and a half, she has focused on mastering modern DevOps workflows—diving deep into GitHub best practices, AWS management, and building custom GitHub Actions to streamline and automate development processes.</p>
 <p>Her technical foundation includes strong front-end experience with HTML, CSS, and JavaScript, complemented by working knowledge of Linux/Unix systems and a growing skill set in back-end development. This diverse background enables her to bridge intuitive design with scalable, efficient infrastructure.</p>
 <p>At Expansive Labs, Hayley is passionate about building smarter, end-to-end solutions that combine clean interfaces with powerful automation—contributing to innovation at every layer of the stack.</p>
 
+                            </div>
                       </div>
-                    </div>
+
+                      </div>
+                  </div>
+                </div>
                   </div>
                 </div>
 

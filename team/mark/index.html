@@ -36,7 +36,11 @@ Coded by www.creative-tim.com
   <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
-
+<style>
+.overlay-image {
+    z-index: 10;
+}
+</style>
 </head>
 
 <body class="">
@@ -431,18 +435,23 @@ Coded by www.creative-tim.com
               <div class="container">
                 <div class="row">
 
-                  <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+                  <div class="position-relative">
                       
-                      <img src="/static/assets/img/mark.jpg" alt="Photo of Mark Zimmerman" class="img-fluid rounded-circle shadow mb-4"
-                        style="max-width: 200px;">
+                          <img src="/static/assets/img/mark.jpg"
+                              alt="Photo of Mark Zimmerman"
+                              class="position-absolute top: -10 start-50 translate-middle-x rounded shadow overlay-image"
+                              style="max-width: 200px; top: -80px;">
                       
-                      <h2 class="text-dark text-gradient text-primary mb-0">
-                        Mark Zimmerman
-                      </h2>
-                      <h4 class="text-secondary mb-4">Thought Leader</h4>
-                      <div class="text-dark" style="text-align: left; justify-content: flex-start;">
-                        <p><strong>The Metaphor of the Flowing Container: Giving and Receiving</strong></p>
+                  <div class="card card-body blur text-md-left text-center px-sm-3 shadow-lg mt-sm-5 py-sm-0">
+                        
+
+                      <div class="card card-body blur text-md-left text-center mb-sm-3 px-sm-5 shadow-lg mt-sm-3 py-sm-0">
+                          <h2 class="text-dark text-gradient text-primary mb-0 mt-7">
+                              Mark Zimmerman
+                          </h2>
+                          <h4 class="text-secondary mb-4">Thought Leader</h4>
+                            <div class="text-dark" style="text-align: left; justify-content: flex-start;">
+                                <p><strong>The Metaphor of the Flowing Container: Giving and Receiving</strong></p>
 <p><strong>Introduction:</strong></p>
 <p>This document explores a powerful metaphor presented by Mark, using the image of water flowing in and out of a container. This metaphor illustrates the interconnectedness of giving and receiving in various aspects of life, including love, energy, resources, and overall well-being. It highlights how expending these elements creates space for replenishment, emphasizing the importance of both outflow and inflow.</p>
 <p><strong>Key Concepts:</strong></p>
@@ -477,8 +486,12 @@ Coded by www.creative-tim.com
 <p><strong>Conclusion:</strong></p>
 <p>Mark’s metaphor of the flowing container provides a valuable framework for understanding the dynamic interplay between giving and receiving. By recognizing the importance of both outflow and inflow, and by ensuring that our “containers” are adequately replenished, we can cultivate a more balanced and fulfilling life.</p>
 
+                            </div>
                       </div>
-                    </div>
+
+                      </div>
+                  </div>
+                </div>
                   </div>
                 </div>
 

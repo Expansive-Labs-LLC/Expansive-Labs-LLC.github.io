@@ -36,7 +36,11 @@ Coded by www.creative-tim.com
   <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
-
+<style>
+.overlay-image {
+    z-index: 10;
+}
+</style>
 </head>
 
 <body class="">
@@ -431,22 +435,31 @@ Coded by www.creative-tim.com
               <div class="container">
                 <div class="row">
 
-                  <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+                  <div class="position-relative">
                       
-                      <img src="/static/assets/img/tanya.jpg" alt="Photo of Tanya Atanasova" class="img-fluid rounded-circle shadow mb-4"
-                        style="max-width: 200px;">
+                          <img src="/static/assets/img/tanya.jpg"
+                              alt="Photo of Tanya Atanasova"
+                              class="position-absolute top: -10 start-50 translate-middle-x rounded shadow overlay-image"
+                              style="max-width: 200px; top: -80px;">
                       
-                      <h2 class="text-dark text-gradient text-primary mb-0">
-                        Tanya Atanasova
-                      </h2>
-                      <h4 class="text-secondary mb-4">Cloud Infrastructure Architect</h4>
-                      <div class="text-dark" style="text-align: left; justify-content: flex-start;">
-                        <p><strong>Architecture and Design</strong></p>
+                  <div class="card card-body blur text-md-left text-center px-sm-3 shadow-lg mt-sm-5 py-sm-0">
+                        
+
+                      <div class="card card-body blur text-md-left text-center mb-sm-3 px-sm-5 shadow-lg mt-sm-3 py-sm-0">
+                          <h2 class="text-dark text-gradient text-primary mb-0 mt-7">
+                              Tanya Atanasova
+                          </h2>
+                          <h4 class="text-secondary mb-4">Cloud Infrastructure Architect</h4>
+                            <div class="text-dark" style="text-align: left; justify-content: flex-start;">
+                                <p><strong>Architecture and Design</strong></p>
 <p>Tanya has held a role in application development, DevOps, and Cloud Architecture with focus on networking and AWS Landing Zone. Tanya spent the last 5 years consulting and creating cloud architecture for AWS ProServe&quot;</p>
 
+                            </div>
                       </div>
-                    </div>
+
+                      </div>
+                  </div>
+                </div>
                   </div>
                 </div>
 
