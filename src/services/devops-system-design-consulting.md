@@ -7,6 +7,23 @@ tags: services
 body_class: base-blog
 permalink: "/services/devops-system-design-consulting/"
 ---
+<style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
 # DevOps System Design Consulting
 
 Unlock the full potential of your software development and operations with our expert DevOps System Design Consulting services. We help you build robust, scalable, and efficient systems that accelerate your time to market and improve your overall software delivery lifecycle.

@@ -7,6 +7,23 @@ tags: services
 body_class: base-blog
 permalink: "/services/security-certification-preparation/"
 ---
+<style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
 # Security Certification Preparation: NIST, SOC 2, ISO 27001
 
 ## Secure Your Future with Industry-Leading Certifications

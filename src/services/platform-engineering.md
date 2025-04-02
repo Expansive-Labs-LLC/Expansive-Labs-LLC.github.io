@@ -7,6 +7,23 @@ tags: services
 body_class: base-blog
 permalink: "/services/platform-engineering/"
 ---
+<style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
 # Cloud Infrastructure Platform Engineering
 
 Empower your development teams and accelerate software delivery with our Cloud Infrastructure Platform Engineering services. We build and maintain robust, scalable, and self-service cloud platforms that drive innovation and efficiency.

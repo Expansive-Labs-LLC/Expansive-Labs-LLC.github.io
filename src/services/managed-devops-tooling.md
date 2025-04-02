@@ -7,6 +7,23 @@ tags: services
 body_class: base-blog
 permalink: "/services/managed-devops-tooling/"
 ---
+<style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
 # Managed DevOps Tooling
 
 Streamline your software development lifecycle and accelerate your time to market with our comprehensive Managed DevOps Tooling service. We take the burden of managing your complex DevOps toolchain off your shoulders, allowing your team to focus on what they do best: building great software.

@@ -7,6 +7,23 @@ tags: services
 body_class: base-blog
 permalink: "/services/software-development/"
 ---
+ <style>
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        li {
+            text-align:left;
+        }
+    }
+</style>
+
 # Software Development Services
 
 Unlock your business potential with custom software solutions designed to drive innovation and efficiency.
