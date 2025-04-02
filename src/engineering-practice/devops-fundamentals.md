@@ -4,7 +4,6 @@ title: DevOps Fundamentals
 url: devops-fundamentals
 name: "DevOps Fundamentals"
 tags: devopsfundamentals
-body_class: base-blog
 permalink: "/engineering-practice/devops-fundamentals/"
 ---
 ## DevOps Fundamentals Applied Organization-Wide: Strengthening Business Development

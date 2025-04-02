@@ -4,7 +4,6 @@ title: Style Guide
 url: style-guide
 name: "Style Guide"
 tags: styleguide
-body_class: base-blog
 permalink: "/engineering-practice/style-guide/"
 ---
 ## Engineering Style Guides: Scaling Excellence

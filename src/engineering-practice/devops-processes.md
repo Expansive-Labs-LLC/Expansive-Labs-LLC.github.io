@@ -4,7 +4,6 @@ title: DevOps Procesess
 url: devops
 name: "DevOps Processes"
 tags: devops
-body_class: base-blog
 permalink: "/engineering-practice/devops/"
 ---
 ## Core Fundamentals of DevOps Processes

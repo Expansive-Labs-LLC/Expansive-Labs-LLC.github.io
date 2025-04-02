@@ -26,7 +26,7 @@ Coded by www.creative-tim.com
   <link rel="canonical" href="https://appseed.us/ui-kit/soft-ui-design-system" />
 
   <title>
-  {{ title }} 
+    {{ title }}
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -48,7 +48,17 @@ Coded by www.creative-tim.com
   {% include "navigation.njk" %}
   <header class="header-2">
     <div class="page-header section-height-75 relative"
-      style="background-image: url('/static/assets/img/expansiveBackground1.jpg')">
+      style="background-image: url('/static/assets/img/infinity-1.jpg')">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h1 class="text-white text-center mx-auto" style="filter: drop-shadow(4px 6px 8px rgba(106,168,179,0.6))">
+              {{ title }}
+            </h1>
+          </div>
+        </div>
+      </div>
+
       <div class="position-absolute w-100 z-index-1 bottom-0">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
@@ -65,35 +75,22 @@ Coded by www.creative-tim.com
           </g>
         </svg>
       </div>
-      <div class="container">
-        <div class="row">
-          <div style="margin-top:150px">
-            <div class="text-center mx-auto">
-              <h1 class="text-white pt-3 mt-n5">
-                {{title}}
-              </h1>
-              <div class="container">
-                <div class="row">
+    </div>
+  </header>
 
-                  <div class="card card-body blur text-start px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <h2
-                      class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">
-                      {{ content | safe }}</h2>
 
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card card-body blur text-start px-sm-5 shadow-lg mt-sm-5 py-sm-5">
+          <h2 class="text-dark text-gradient text-primary mb-0" style="text-shadow: 2px 2px 2px #000000;">
+            {{ content | safe }}
+          </h2>
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
-  </header>
 
 
   {% include "footer.njk" %}

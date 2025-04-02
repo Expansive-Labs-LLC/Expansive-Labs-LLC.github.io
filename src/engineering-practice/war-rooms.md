@@ -4,7 +4,6 @@ title: War Rooms
 url: war-rooms
 name: "War Rooms"
 tags: warRooms
-body_class: base-blog
 permalink: "/engineering-practice/war-rooms/"
 ---
 # War Room Meeting Style for Urgent Engineering Issues
