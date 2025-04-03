@@ -4,7 +4,6 @@ title: Standard Operating Procedure
 url: SOP
 name: "SOP"
 tags: SOP
-body_class: base-blog
 permalink: "/engineering-practice/SOP/"
 ---
 # DevOps & Agile SOP
