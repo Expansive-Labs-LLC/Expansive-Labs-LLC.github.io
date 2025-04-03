@@ -36,7 +36,11 @@ Coded by www.creative-tim.com
   <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
-
+  <style>
+    .overlay-image {
+      z-index: 10;
+    }
+  </style>
 </head>
 
 <body class="{{ body_class }}">
@@ -47,38 +51,56 @@ Coded by www.creative-tim.com
       style="background-image: url('/static/assets/img/testTubes.jpg')">
       <div class="container">
         <div class="row">
-          <div style="margin-top:150px">
+          <div style="margin-top:200px">
             <div class="text-center mx-auto">
               <div class="container">
                 <div class="row">
 
-                  <div class="card card-body blur text-md-left text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-                    <h2
-                      class="text-dark text-gradient text-primary text-shadow: 2px 2px 2px #000000; text-primary mb-0">
-                      {{ content | safe }}</h2>
+                  <div class="position-relative">
+                    {% if image %}
+                    <img src="{{ image }}" alt="Photo of {{ title }}"
+                      class="position-absolute top: -10 start-50 translate-middle-x rounded shadow overlay-image"
+                      style="max-width: 200px; top: -80px;">
+                    {% endif %}
+                    <div class="card card-body blur text-md-left text-center px-sm-3 shadow-lg mt-sm-5 py-sm-0">
 
+
+                      <div
+                        class="card card-body blur text-md-left text-center mb-sm-3 px-sm-5 shadow-lg mt-sm-3 py-sm-0">
+                        <h2 class="text-dark text-gradient text-primary mb-0 mt-7" style="font-size: clamp(1.25rem, 5vw,
+                          2rem); overflow: hidden; text-overflow: ellipsis;">
+                          {{ title }}
+                        </h2>
+                        
+
+
+                        <h4 class="text-secondary mb-4">{{ role }}</h4>
+                        <div class="text-dark" style="text-align: left; justify-content: flex-start;">
+                      
+                        
+                          {{ content | safe }}
+                        </div>  
+                      </div>    
+                    </div>
                   </div>
                 </div>
-
               </div>
-
             </div>
-          </div>
-
+          </div>      
         </div>
       </div>
-    </div>
-    </div>
-
+    </div>    
   </header>
-
-
-
 
 
   {% include "footer.njk" %}
 
   {% include "scripts.njk" %}
+
+
+</body>
+
+</html>
 
   <!--  Google Maps Plugin    -->
   <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.1" type="text/javascript"></script>
@@ -108,7 +130,12 @@ Coded by www.creative-tim.com
       };
     }
   </script>
-
-</body>
-
-</html>
+tElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>

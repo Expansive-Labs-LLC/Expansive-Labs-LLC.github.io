@@ -2,11 +2,12 @@
 layout: services
 title: Expansive Labs
 name: "Platform Engineering"
-url: expansivelabs.io
+url: platform-engineering
 tags: services
 body_class: base-blog
 permalink: "/services/platform-engineering/"
 ---
+
 # Cloud Infrastructure Platform Engineering
 
 Empower your development teams and accelerate software delivery with our Cloud Infrastructure Platform Engineering services. We build and maintain robust, scalable, and self-service cloud platforms that drive innovation and efficiency.
@@ -60,5 +61,3 @@ Empower your development teams and accelerate software delivery with our Cloud I
 ## Get Started Today
 
 Transform your software delivery process with our Cloud Infrastructure Platform Engineering services. Contact us for a free consultation.
-
-[Button: Contact Us]

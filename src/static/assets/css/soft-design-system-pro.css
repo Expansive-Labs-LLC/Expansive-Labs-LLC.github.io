@@ -14247,6 +14247,19 @@ h4,
   letter-spacing: -0.05rem;
 }
 
+    @media (max-width: 575.98px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        ul {
+            font-size: 15px;
+        }
+    }
+
+
 a {
   letter-spacing: -0.025rem;
   color: #000;
@@ -20127,7 +20140,7 @@ pre[class*="language-"] {
 }
 
 .card.card-background.card-background-mask-primary:after {
-  background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
+  background-image: linear-gradient(310deg, #54B4D3 0%, #333399 100%);
   opacity: .85;
 }
 

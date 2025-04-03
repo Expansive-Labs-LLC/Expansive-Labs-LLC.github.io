@@ -1,5 +1,6 @@
 ---
 title: cfn-boto-interface
+layout: post
 date: "2018-04-12"
 tags: [ blog, aws, boto, cloudformation, lambda ]
 permalink: "/posts/cfn-boto-interface/"

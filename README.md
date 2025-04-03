@@ -1,117 +1,29 @@
-# [Eleventy Soft UI PRO](https://appseed.us/product/eleventy-soft-ui-pro)
+# Expansive-Labs-LLC.github.io
 
-> Eleventy (11ty) seed project - Features:
+## Introduction
+This is an open source 11ty website built by Expansive Labs, LLC. The purpose of this website is to document what we do, showcase our skills, and build an open source community. 
 
-<br />
+## Getting Started
 
-- UI Kit: **[Soft UI Design System PRO](http://bit.ly/3730QW3)** (Pro Version) by **Creative-Tim**
-- Render Engine: Nunjunks / Markdown (for blog posts)
-- CSS Pipeline (Sass, CleanCSS)
-- JS Bundling (Webpack)
-- SVG Icon Sprite Generation
-- Critical CSS, HTML Minification
-- Support via **Github** and [Discord](https://discord.gg/fZC6hup).
+### Prerequisites
+To get started with this project, you'll need Node.js installed on your computer. You can download it from [here](https://nodejs.org/).
 
-<br />
+### Installation
+1. Clone the repository from https://github.com/Expansive-Labs-LLC/Expansive-Labs-LLC.github.io.
+2. Navigate to the directory you cloned onto your machine.
+3. Run `npm install` to install all necessary dependencies.
+4. Run `npm run dev` to start the site locally.
 
-**Codebase Credits**
+## Contributing
 
-- Initially forked from [Eleventastic](http://github.com/maxboeck/eleventastic) / [Max Böck](https://github.com/maxboeck)
-- More **11ty** inspiration from: [EleventyOne](https://github.com/philhawksworth/eleventyone), [Supermaya](https://github.com/MadeByMike/supermaya) 
+If you'd like to contribute to this project, follow these steps:
 
-<br />
+1. Fork and clone the repository to your local machine.
+2. Create a new branch to make changes on: `git checkout -b <branch-name>`.
+3. Make all necessary changes and commit them with appropriate messages.
+4. Push your changes to GitHub: `git push origin <branch-name>`.
+5. Submit a pull request for your branch so the changes can be reviewed.
 
-> Links
+## Contact
+If you have any questions or concerns regarding this project, please don't hesitate to reach out to us at info@expansivelabs.io
 
-- [Eleventy Soft UI PRO](https://appseed.us/product/eleventy-soft-ui-pro) - Product page
-- [Eleventy Soft UI PRO Demo](https://eleventy-soft-ui-pro.appseed-srv1.com/) - LIVE Demo
-
-<br />
-
-![Soft UI Design System - Template project provided by AppSeed in Eleventy (11ty).](https://raw.githubusercontent.com/app-generator/eleventy-soft-ui-pro/main/media/eleventy-soft-ui-pro-intro.gif)
-
-<br />
-
-## Build from sources
-
-```bash
-$ # Clone the sources
-$ git clone https://github.com/app-generator/priv-eleventy-soft-ui-pro.git
-$ cd priv-eleventy-soft-ui-pro
-$
-$ # Install modules
-$ npm install # OR `yarn`
-$
-$ # Start for development
-$ npm start # OR `yarn start`
-$
-$ # Access the project in browser:
-$ # http://127.0.0.1:8080/ 
-$
-$ # Production Build
-$ npm build # OR `yarn build`
-```
-
-<br />
-
-## Codebase structure
-
-The project has a simple structure, represented as bellow:
-
-```bash
-< PROJECT ROOT >
-   |
-   |-- src/
-   |    |-- data/
-   |    |    |-- meta.json            # Provides META information 
-   |    |    |-- app.json             # Provides APP information
-   |    |
-   |    |-- includes/                 # Page chunks, components
-   |    |    |-- navigation.njk       # Top bar
-   |    |    |-- sidebar.njk          # Left sidebar
-   |    |    |-- scripts.njk          # JS scripts common to all pages
-   |    |    |-- footer.njk           # The common footer
-   |    |
-   |    |-- layouts/                  # App Layouts (the master pages)
-   |    |    |-- base.njk             # Used by common pages like index, UI
-   |    |    |-- base-fullscreen.njk  # Used by auth pages (login, register)
-   |    |   
-   |    |-- index.njk                 # The default page
-   |    |-- *.njk                     # All other pages provided by the UI Kit
-   |
-   |-- utils/                         # JS Helpers
-   |
-   |-- .eleventy.js                   # 11ty Config
-   |-- netlify.toml                   # Netlify deployer
-   |
-   |-- ************************************************************************
-```
-
-<br />
-
-## Deploy a fork of this template to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/app-generator/priv-eleventy-soft-ui-pro)
-
-## CSS
-
-Styling works with Sass. The main index file is in `src/static/assets/styles/main.scss`. Import any SCSS code you want in there; it will be processed and optimized. The output is in `dist/static/assets/styles/main.css`
-
-## JS
-
-Javascript can be written in ES6 syntax. The main index file is in `src/static/assets/scripts/main.js`. It will be transpiled to ES5 with babel, bundled together with webpack, and minified in production. The output is in `dist/static/assets/scripts/main.js`
-
-## SVG Icons
-
-All SVG files added to `src/static/assets/icons` will be bundled into a `symbol` sprite file. The SVG filename will then be used as the symbol identifier and the icon can be used as a shortcode.
-
-For example, if you have a `github.svg` file in that folder, you can display it anywhere by using `{% icon "github" %}` in your templates.
-
-## Critical CSS
-
-Currently, critical CSS will only be inlined in the head of the homepage. This is done by using the [critical](https://github.com/addyosmani/critical) package in an automatic transform.
-
-<br />
-
----
-[Eleventy Soft UI PRO](https://appseed.us/product/eleventy-soft-ui-pro) - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator).

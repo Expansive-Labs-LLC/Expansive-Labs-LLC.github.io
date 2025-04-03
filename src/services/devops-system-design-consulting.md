@@ -2,11 +2,12 @@
 layout: services
 title: Expansive Labs
 url: devops-system-design-consulting
-name: "Devops System Design Consulting"
+name: "DevOps System Design Consulting"
 tags: services
 body_class: base-blog
 permalink: "/services/devops-system-design-consulting/"
 ---
+
 # DevOps System Design Consulting
 
 Unlock the full potential of your software development and operations with our expert DevOps System Design Consulting services. We help you build robust, scalable, and efficient systems that accelerate your time to market and improve your overall software delivery lifecycle.
@@ -56,4 +57,3 @@ Unlock the full potential of your software development and operations with our e
 
 Ready to take your DevOps practices to the next level? Contact us today for a consultation and discover how we can help you achieve your business goals.
 
-[Contact Us Button/Link]
