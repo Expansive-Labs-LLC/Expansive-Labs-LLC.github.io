@@ -7,22 +7,6 @@ tags: services
 body_class: base-blog
 permalink: "/services/devops-system-design-consulting/"
 ---
-<style>
-    @media (max-width: 575.98px) {
-        h1 {
-            font-size: 30px;
-        }
-        h2 {
-            font-size: 20px;
-        }
-        ul {
-            font-size: 15px;
-        }
-        li {
-            text-align:left;
-        }
-    }
-</style>
 
 # DevOps System Design Consulting
 
