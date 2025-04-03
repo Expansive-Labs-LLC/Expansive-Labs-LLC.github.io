@@ -36,11 +36,11 @@ Coded by www.creative-tim.com
   <link id="pagestyle" href="/static/assets/css/soft-design-system-pro.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <!-- <link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
-<style>
-.overlay-image {
-    z-index: 10;
-}
-</style>
+  <style>
+    .overlay-image {
+      z-index: 10;
+    }
+  </style>
 </head>
 
 <body class="">
@@ -431,28 +431,34 @@ Coded by www.creative-tim.com
       style="background-image: url('/static/assets/img/testTubes.jpg')">
       <div class="container">
         <div class="row">
-          <div style="margin-top:150px">
+          <div style="margin-top:200px">
             <div class="text-center mx-auto">
               <div class="container">
                 <div class="row">
 
                   <div class="position-relative">
-                      
-                          <img src="/static/assets/img/derek.jpg"
-                              alt="Photo of Derek DeJonghe"
-                              class="position-absolute top: -10 start-50 translate-middle-x rounded shadow overlay-image"
-                              style="max-width: 200px; top: -80px;">
-                      
-                  <div class="card card-body blur text-md-left text-center px-sm-3 shadow-lg mt-sm-5 py-sm-0">
+                    
+                    <img src="/static/assets/img/derek.jpg" alt="Photo of Derek DeJonghe"
+                      class="position-absolute top: -10 start-50 translate-middle-x rounded shadow overlay-image"
+                      style="max-width: 200px; top: -80px;">
+                    
+                    <div class="card card-body blur text-md-left text-center px-sm-3 shadow-lg mt-sm-5 py-sm-0">
+
+
+                      <div
+                        class="card card-body blur text-md-left text-center mb-sm-3 px-sm-5 shadow-lg mt-sm-3 py-sm-0">
+                        <h2 class="text-dark text-gradient text-primary mb-0 mt-7" style="font-size: clamp(1.25rem, 5vw,
+                          2rem); overflow: hidden; text-overflow: ellipsis;">
+                          Derek DeJonghe
+                        </h2>
                         
 
-                      <div class="card card-body blur text-md-left text-center mb-sm-3 px-sm-5 shadow-lg mt-sm-3 py-sm-0">
-                          <h2 class="text-dark text-gradient text-primary mb-0 mt-7">
-                              Derek DeJonghe
-                          </h2>
-                          <h4 class="text-secondary mb-4">Founder</h4>
-                            <div class="text-dark" style="text-align: left; justify-content: flex-start;">
-                                <p><strong>A Journey of Innovation and Cloud Expertise</strong></p>
+
+                        <h4 class="text-secondary mb-4">Founder</h4>
+                        <div class="text-dark" style="text-align: left; justify-content: flex-start;">
+                      
+                        
+                          <p><strong>A Journey of Innovation and Cloud Expertise</strong></p>
 <p>Derek DeJonghe’s passion for technology and innovation began early. Even as a young entrepreneur, Derek was already building his first business at the age of 10, providing lawn care and snow removal services to his community using his father’s tractor. This early experience instilled in him a strong work ethic, a knack for problem-solving, and the drive to create solutions.</p>
 <p>This entrepreneurial spirit has been a constant throughout Derek’s career. With over 10 years of cloud consulting experience, he excels at helping organizations optimize their development cycle and application delivery. Derek founded Expansive Labs in July 2023, where he currently advises startups on cloud operations and software agility.</p>
 <p>Prior to founding Expansive Labs, Derek held several key leadership positions at RightBrain Networks for over 10 years, including Vice President of Engineering and Director of Cloud Architecture. During his time there, he oversaw technical delivery, managed services, and technical partnership audits, enabling his team to excel. Derek also served as Principal Cloud Solutions Architect, leading multiple cloud migration, refactoring, and greenfield application development projects. He has a proven track record of designing and building resilient cloud architectures and was recognized as the highest technical escalation point within RightBrain Networks. This experience has given Derek the insight into how hundreds of the largest companies in the US technology industry manage people, software, and services.</p>
@@ -464,29 +470,18 @@ We can use buttons or links in markdown to link to another md file or a playlist
 <button type="button" onclick="https://spotify.com" class="btn btn-info w-auto me-1 mb-0">Postive Vibes Playlist</button>
 
 --!>
-                            </div>
-                      </div>
-
-                      </div>
+                        </div>  
+                      </div>    
+                    </div>
                   </div>
                 </div>
-                  </div>
-                </div>
-
               </div>
-
             </div>
-          </div>
-
+          </div>      
         </div>
       </div>
-    </div>
-    </div>
-
+    </div>    
   </header>
-
-
-
 
 
   <footer class="footer pt-2 mt-2">
@@ -582,6 +577,11 @@ We can use buttons or links in markdown to link to another md file or a playlist
   gtag('config', 'G-KNP10LPY12');
 </script>
 
+
+</body>
+
+</html>
+
   <!--  Google Maps Plugin    -->
   <script src="/static/assets/js/soft-design-system-pro.min.js?v=1.0.1" type="text/javascript"></script>
   <script type="text/javascript">
@@ -610,7 +610,12 @@ We can use buttons or links in markdown to link to another md file or a playlist
       };
     }
   </script>
-
-</body>
-
-</html>
+tElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
