@@ -8061,6 +8061,7 @@ fieldset:disabled .btn {
 
 .pt-2 {
   padding-top: 0.5rem !important;
+  margin-top: 5px;
 }
 
 .pt-3 {
