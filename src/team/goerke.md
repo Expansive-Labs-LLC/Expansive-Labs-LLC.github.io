@@ -1,7 +1,7 @@
 ---
 layout: team-profile
 title: "Aaron Goerke"
-role: "Printing sales for knotty intent"
+role: "Printing sales"
 image: "/static/assets/img/goerke.jpg"
 bio: "A seasoned leader with extensive experience in graphic design and business operations."
 permalink: "team/goerke/"

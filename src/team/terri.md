@@ -1,9 +1,9 @@
 ---
 layout: team-profile
 title: "Terri Bauer"
-role: "Printing sales for knotty intent"
-image: "/static/assets/img/default-avatar.png"
-bio: "Terri's bio"
+role: "Printing sales"
+image: "/static/assets/img/logo.png"
+bio: "Driven professional with extensive experience leading high-performance sales and marketing teams"
 permalink: "team/terri/"
 tags: ["printMarketing", "Terri"]
 github_url: 
