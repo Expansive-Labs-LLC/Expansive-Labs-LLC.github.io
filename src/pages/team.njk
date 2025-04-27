@@ -402,8 +402,8 @@ permalink: "/team/"
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto text-center mb-5">
-        <h3 class="text-gradient text-info">The Web Development Team</h3>
-        <p class="font-weight-normal">Meet our web developers</p>
+        <h3 class="text-gradient text-info">The Software Development Team</h3>
+        <p class="font-weight-normal">Meet our software developers</p>
       </div>
     </div>
 
@@ -486,6 +486,83 @@ permalink: "/team/"
 
     <div class="row">
       {% for member in collections.infoTech %}
+      <div class="col-md-6 d-flex align-items-stretch" style="margin:auto;">
+        <div class="card card-profile card-plain w-100 h-100" >
+          <div class="row g-0">
+            <div class="col-lg-5 d-flex align-items-center">
+              <a href="{{ member.url }}" class="w-100">
+                <div class="position-relative w-100">
+                  <div class="blur-shadow-image">
+                    <img class="w-100 h-100 object-fit-cover rounded-3 shadow-lg"
+                         src="{{ member.data.image | default('/static/assets/img/default-avatar.jpg') }}" 
+                         alt="{{ member.data.title }}">
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-7 ps-0 my-auto">
+              <div class="card-body text-start">
+                <h5 class="font-weight-bolder mb-0">{{ member.data.title }}</h5>
+                <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.role }}</p>
+                <p class="text-uppercase text-sm font-weight-bold mb-2">{{ member.data.team }}</p>
+                <p class="mb-4">{{ member.data.bio }}</p>
+                <div class="social-buttons">
+                  {% if member.data.facebook_url %}
+                  <button type="button" class="btn btn-facebook btn-simple btn-lg mb-0 px-2">
+                    <svg width="20" height="20" viewBox="0 0 32 32">
+                       <image href="/static/assets/img/Facebook.svg" width="100%" height="100%" />
+                    </svg>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.twitter_url %}
+                  <button type="button" class="btn btn-xSocial btn-simple btn-lg mb-0 px-2">
+                    <svg width="20" height="20" viewBox="0 0 32 32">
+                       <image href="/static/assets/img/xSocial.svg" width="100%" height="100%" />
+                    </svg>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.github_url %}
+                  <a href="{{ member.data.github_url }}"target="_blank">
+                  <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
+                    <svg width="20" height="20" viewBox="0 0 32 32">
+                       <image href="/static/assets/img/github.svg" width="100%" height="100%" />
+                    </svg>
+                    </a>
+                  </button>
+                  {% endif %}
+                  {% if member.data.linkedin_url %}
+                  <a href="{{ member.data.linkedin_url }}"target="_blank">
+                  <button type="button" class="btn btn-github btn-simple btn-lg mb-0 px-2">
+                    <svg width="20" height="20" viewBox="0 0 32 32">
+                       <image href="/static/assets/img/LinkedIN.svg" width="100%" height="100%" />
+                    </svg>
+                    </a>
+                  </button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center mb-5">
+        <h3 class="text-gradient text-info">The Volunteer Team</h3>
+        <p class="font-weight-normal">Meet our skilled Volunteers.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for member in collections.volunteer %}
       <div class="col-md-6 d-flex align-items-stretch" style="margin:auto;">
         <div class="card card-profile card-plain w-100 h-100" >
           <div class="row g-0">

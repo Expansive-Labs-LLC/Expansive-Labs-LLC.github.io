@@ -1,7 +1,7 @@
 ---
 layout: team-profile
 title: "Terri Bauer"
-role: "Printing sales for knotty intent"
+role: "Print, sales, and marketing"
 image: "/static/assets/img/default-avatar.png"
 bio: "Terri's bio"
 permalink: "team/terri/"
