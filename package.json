@@ -13,7 +13,9 @@
         "eleventy:dev": "cross-env ELEVENTY_ENV=development eleventy --serve",
         "eleventy:prod": "cross-env ELEVENTY_ENV=production eleventy",
         "clean": "del-cli dist",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "node .husky/install.mjs"
+
     },
     "repository": {
         "type": "git",
@@ -57,9 +59,13 @@
         "webpack": "^5.98.0"
     },
     "devDependencies": {
+        "@commitlint/cli": "^19.8.0",
+        "@commitlint/config-conventional": "^19.8.0",
+        "commitlint": "^19.8.0",
         "cross-env": "^7.0.2",
         "eleventy-plugin-lazyimages": "^2.1.0",
-        "ftp-deploy": "^2.3.3"
+        "ftp-deploy": "^2.3.3",
+        "husky": "^9.1.7"
     },
     "main": ".eleventy.js",
     "keywords": [],
