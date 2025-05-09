@@ -11,67 +11,6 @@ on:
       filepath:
         description: 'Path to the blog post Markdown file (for manual triggering)'
         required: true
-    jobs:
-      extract_and_queue_prompt_manual: # Give it a slightly different name
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout repository
-            uses: actions/checkout@v4
-
-          - name: Set up Python
-            uses: actions/setup-python@v5
-            with:
-              python-version: '3.x'
-
-          - name: Install Python Dependencies
-            run: pip install python-frontmatter aws-sdk-pandas
-
-          - name: Extract Prompt and Send to SQS
-            env:
-              AWS_ACCESS_KEY_ID: secrets.AWS_ACCESS_KEY_ID
-              AWS_SECRET_ACCESS_KEY: secrets.AWS_SECRET_ACCESS_KEY
-              AWS_REGION: secrets.AWS_REGION
-              SQS_QUEUE_URL: secrets.SQS_QUEUE_URL
-            run: |
-              import os
-              import re
-              import frontmatter
-              import json
-              import boto3
-
-              def extract_prompt(filepath):
-                  with open(filepath, 'r') as f:
-                      metadata = frontmatter.load(f)
-                      if 'tags' in metadata and isinstance(metadata['tags'], list):
-                          for tag in metadata['tags']:
-                              if isinstance(tag, dict) and 'prompt' in tag:
-                                  return tag['prompt']
-                      # Fallback to searching for a custom comment tag
-                      content = f.read()
-                      match = re.search(r'', content)
-                      if match:
-                          return match.group(1).strip()
-              return None
-
-              filepath = ${{ github.event.inputs.filepath }} # Get filepath from manual input
-
-              if not filepath:
-                  print("No file path provided for manual trigger.")
-                  exit(1)
-
-              prompt = extract_prompt(filepath)
-
-              if prompt:
-                  sqs = boto3.client('sqs', region_name=os.environ['AWS_REGION'],
-                                     aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-                                     aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
-                  response = sqs.send_message(
-                      QueueUrl=os.environ['SQS_QUEUE_URL'],
-                      MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
-                  )
-                  print(f"Prompt sent to SQS for {filepath} (manual trigger). Message ID: {response['MessageId']}")
-              else:
-                  print(f"No Stable Diffusion prompt found in {filepath}")
 
 jobs:
   extract_and_queue_prompt:
@@ -88,12 +27,12 @@ jobs:
       - name: Install Python Dependencies
         run: pip install python-frontmatter aws-sdk-pandas
 
-      - name: Extract Prompt and Send to SQS
+      - name: Extract Prompt and Send to SQS (Push Trigger)
         env:
-          AWS_ACCESS_KEY_ID: secrets.AWS_ACCESS_KEY_ID
-          AWS_SECRET_ACCESS_KEY: secrets.AWS_SECRET_ACCESS_KEY
-          AWS_REGION: secrets.AWS_REGION
-          SQS_QUEUE_URL: secrets.SQS_QUEUE_URL
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
         run: |
           import os
           import re
@@ -108,17 +47,25 @@ jobs:
                       for tag in metadata['tags']:
                           if isinstance(tag, dict) and 'prompt' in tag:
                               return tag['prompt']
-                      # Fallback to searching for a custom comment tag
-                      content = f.read()
-                      match = re.search(r'', content)
-                      if match:
-                          return match.group(1).strip()
+                  # Fallback to searching for a custom comment tag
+                  content = f.read()
+                  match = re.search(r'', content)
+                  if match:
+                      return match.group(1).strip()
               return None
 
-          filepath = ${{ github.event.inputs.filepath || github.event.commits[0].added[0] || github.event.commits[0].modified[0] }}
+          filepath = ""
+          if github.event.commits:
+              for commit in github.event.commits:
+                  if commit.added and 'src/posts/' in commit.added[0]:
+                      filepath = commit.added[0]
+                      break
+                  elif commit.modified and 'src/posts/' in commit.modified[0]:
+                      filepath = commit.modified[0]
+                      break
 
           if not filepath:
-              print("No relevant file path found for triggering event.")
+              print("No relevant blog post file found for push event.")
               exit(1)
 
           prompt = extract_prompt(filepath)
@@ -132,5 +79,67 @@ jobs:
                   MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
               )
               print(f"Prompt sent to SQS for {filepath}. Message ID: {response['MessageId']}")
+          else:
+              print(f"No Stable Diffusion prompt found in {filepath}")
+
+  extract_and_queue_prompt_manual:
+    needs: extract_and_queue_prompt # Ensure this job runs independently if manually triggered
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python Dependencies
+        run: pip install python-frontmatter aws-sdk-pandas
+
+      - name: Extract Prompt and Send to SQS (Manual Trigger)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
+        run: |
+          import os
+          import re
+          import frontmatter
+          import json
+          import boto3
+
+          def extract_prompt(filepath):
+              with open(filepath, 'r') as f:
+                  metadata = frontmatter.load(f)
+                  if 'tags' in metadata and isinstance(metadata['tags'], list):
+                      for tag in metadata['tags']:
+                          if isinstance(tag, dict) and 'prompt' in tag:
+                              return tag['prompt']
+                  # Fallback to searching for a custom comment tag
+                  content = f.read()
+                  match = re.search(r'', content)
+                  if match:
+                      return match.group(1).strip()
+              return None
+
+          filepath = ${{ github.event.inputs.filepath }} # Get filepath from manual input
+
+          if not filepath:
+              print("No file path provided for manual trigger.")
+              exit(1)
+
+          prompt = extract_prompt(filepath)
+
+          if prompt:
+              sqs = boto3.client('sqs', region_name=os.environ['AWS_REGION'],
+                                 aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+                                 aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
+              response = sqs.send_message(
+                  QueueUrl=os.environ['SQS_QUEUE_URL'],
+                  MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
+              )
+              print(f"Prompt sent to SQS for {filepath} (manual trigger). Message ID: {response['MessageId']}")
           else:
               print(f"No Stable Diffusion prompt found in {filepath}")
