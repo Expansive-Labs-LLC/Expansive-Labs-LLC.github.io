@@ -25,7 +25,9 @@ jobs:
           python-version: '3.x'
 
       - name: Install Python Dependencies
-        run: python -m pip install python-frontmatter
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install python-frontmatter boto3 aws-sdk-pandas
 
       - name: Extract Prompt and Send to SQS (Push Trigger)
         env:
