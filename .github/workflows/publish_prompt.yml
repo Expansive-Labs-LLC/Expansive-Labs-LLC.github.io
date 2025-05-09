@@ -29,12 +29,12 @@ jobs:
           filepath=""
 
           if ${{ github.event_name == 'push' }}; then
-            if github.event.commits; then
-              for commit in github.event.commits; do
-                if commit.added && [[ "${commit.added[*]}" == *'src/posts/'*.md* ]]; then
+            if ${{ github.event.commits }}; then
+              for commit in ${{ github.event.commits[*] }}; do
+                if ${{ commit.added }} && [[ "${commit.added[*]}" == *'src/posts/'*.md* ]]; then
                   filepath=$(echo "${commit.added[*]}" | grep 'src/posts/.*\.md' -om1)
                   break
-                elif commit.modified && [[ "${commit.modified[*]}" == *'src/posts/'*.md* ]]; then
+                elif ${{ commit.modified }} && [[ "${commit.modified[*]}" == *'src/posts/'*.md* ]]; then
                   filepath=$(echo "${commit.modified[*]}" | grep 'src/posts/.*\.md' -om1)
                   break
                 fi
