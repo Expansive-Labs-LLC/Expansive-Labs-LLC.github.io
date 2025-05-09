@@ -25,9 +25,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install Python Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install python-frontmatter boto3
+        run: python -m pip install --upgrade pip && python -m pip install python-frontmatter boto3
 
       - name: Extract Prompt and Send to SQS (Push Trigger)
         env:
@@ -35,6 +33,10 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_COMMIT_ADDED: ${{ github.event.commits[0].added[0] || '' }}
+          GITHUB_COMMIT_MODIFIED: ${{ github.event.commits[0].modified[0] || '' }}
+          GITHUB_DISPATCH_FILEPATH: ${{ github.event.inputs.filepath || '' }}
         run: |
           python <<EOF
           import os
@@ -57,18 +59,21 @@ jobs:
                       return match.group(1).strip()
               return None
 
+          event_name = os.environ.get("GITHUB_EVENT_NAME")
           filepath = ""
-          if github.event.commits:
-              for commit in github.event.commits:
-                  if commit.added and 'src/posts/' in commit.added[0]:
-                      filepath = commit.added[0]
-                      break
-                  elif commit.modified and 'src/posts/' in commit.modified[0]:
-                      filepath = commit.modified[0]
-                      break
+
+          if event_name == "push":
+              added_file = os.environ.get("GITHUB_COMMIT_ADDED")
+              modified_file = os.environ.get("GITHUB_COMMIT_MODIFIED")
+              if added_file and 'src/posts/' in added_file:
+                  filepath = added_file
+              elif modified_file and 'src/posts/' in modified_file:
+                  filepath = modified_file
+          elif event_name == "workflow_dispatch":
+              filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
 
           if not filepath:
-              print("No relevant blog post file found for push event.")
+              print("No relevant blog post file found for this event.")
               exit(1)
 
           prompt = extract_prompt(filepath)
@@ -95,3 +100,60 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python Dependencies
+        run: python -m pip install --upgrade pip && python -m pip install python-frontmatter boto3
+
+      - name: Extract Prompt and Send to SQS (Manual Trigger)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_DISPATCH_FILEPATH: ${{ github.event.inputs.filepath || '' }}
+        run: |
+          python <<EOF
+          import os
+          import re
+          import frontmatter
+          import json
+          import boto3
+
+          def extract_prompt(filepath):
+              with open(filepath, 'r') as f:
+                  metadata = frontmatter.load(f)
+                  if 'tags' in metadata and isinstance(metadata['tags'], list):
+                      for tag in metadata['tags']:
+                          if isinstance(tag, dict) and 'prompt' in tag:
+                              return tag['prompt']
+                  # Fallback to searching for a custom comment tag
+                  content = f.read()
+                  match = re.search(r'', content)
+                  if match:
+                      return match.group(1).strip()
+              return None
+
+          event_name = os.environ.get("GITHUB_EVENT_NAME")
+          filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
+
+          if not filepath:
+              print("No file path provided for manual trigger.")
+              exit(1)
+
+          prompt = extract_prompt(filepath)
+
+          if prompt:
+              sqs = boto3.client('sqs', region_name=os.environ['AWS_REGION'],
+                                 aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+                                 aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
+              response = sqs.send_message(
+                  QueueUrl=os.environ['SQS_QUEUE_URL'],
+                  MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
+              )
+              print(f"Prompt sent to SQS for {filepath} (manual trigger). Message ID: {response['MessageId']}")
+          else:
+              print(f"No Stable Diffusion prompt found in {filepath}")
+          EOF
