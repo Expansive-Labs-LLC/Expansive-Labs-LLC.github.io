@@ -4,7 +4,7 @@ date: "2025-03-27"
 layout: post
 image: "/static/images/blog1.jpg"
 permalink: "/posts/lm-studio/"
-tags: [blog, LLM, AI,local server, prompt: "An old school early 2000's computer with retro colors and using AI to show a prompt on the screen"]
+tags: [blog, LLM, AI,local server, prompt: "An old school early 2000's computer with pink and blue retro colors, using AI to show a prompt on the screen"]
 description: "This is an introduction to my blog."
 authors: Jacob Powell
 Summary:  
