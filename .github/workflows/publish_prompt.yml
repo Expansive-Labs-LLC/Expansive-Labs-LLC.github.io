@@ -28,10 +28,10 @@ on:
 
           - name: Extract Prompt and Send to SQS
             env:
-              AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-              AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              AWS_REGION: ${{ secrets.AWS_REGION }}
-              SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
+              AWS_ACCESS_KEY_ID: secrets.AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: secrets.AWS_SECRET_ACCESS_KEY
+              AWS_REGION: secrets.AWS_REGION
+              SQS_QUEUE_URL: secrets.SQS_QUEUE_URL
             run: |
               import os
               import re
@@ -51,7 +51,7 @@ on:
                       match = re.search(r'', content)
                       if match:
                           return match.group(1).strip()
-                  return None
+              return None
 
               filepath = ${{ github.event.inputs.filepath }} # Get filepath from manual input
 
@@ -73,7 +73,7 @@ on:
               else:
                   print(f"No Stable Diffusion prompt found in {filepath}")
 
-jobs: # This was the issue - 'jobs' should only be defined once at the top level
+jobs:
   extract_and_queue_prompt:
     runs-on: ubuntu-latest
     steps:
@@ -90,10 +90,10 @@ jobs: # This was the issue - 'jobs' should only be defined once at the top level
 
       - name: Extract Prompt and Send to SQS
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
+          AWS_ACCESS_KEY_ID: secrets.AWS_ACCESS_KEY_ID
+          AWS_SECRET_ACCESS_KEY: secrets.AWS_SECRET_ACCESS_KEY
+          AWS_REGION: secrets.AWS_REGION
+          SQS_QUEUE_URL: secrets.SQS_QUEUE_URL
         run: |
           import os
           import re
