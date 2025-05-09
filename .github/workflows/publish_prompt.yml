@@ -25,7 +25,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install Python Dependencies
-        run: pip install --upgrade pip | pip install python-frontmatter aws-sdk-pandas
+        run: pip install --upgrade pip
 
       - name: Extract Prompt and Send to SQS (Push Trigger)
         env:
@@ -95,7 +95,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install Python Dependencies
-        run: pip install --upgrade pip | pip install python-frontmatter aws-sdk-pandas
+        run: pip install --upgrade pip
 
       - name: Extract Prompt and Send to SQS (Manual Trigger)
         env:
