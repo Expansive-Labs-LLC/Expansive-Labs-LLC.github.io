@@ -49,9 +49,6 @@ jobs:
             exit 1
           fi
 
-          prompt=""
-
-          # Try extracting from YAML frontmatter
           prompt=$(sed -n '/^tags:$/,/^---$/{ /prompt: /s/.*prompt: *"\([^"]*\)"/\1/p; }' "$filepath" | head -n 1)
 
           # If not found in frontmatter, try extracting from comment
