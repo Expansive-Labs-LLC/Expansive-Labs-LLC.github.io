@@ -1,11 +1,11 @@
 ---
 layout: team-profile
-title: "Terri Bauer"
+title: "Teri Bauer"
 role: "Print, sales, and marketing"
 image: "/static/assets/img/default-avatar.png"
 bio: "Driven professional with extensive experience leading high-performance sales and marketing teams"
-permalink: "team/terri/"
-tags: ["printMarketing", "Terri"]
+permalink: "team/teri/"
+tags: ["printMarketing", "Teri"]
 github_url: 
 twitter_url: 
 facebook_url:
