@@ -3,12 +3,13 @@ layout: team-profile
 title: "Kasey FitzPatrick"
 role: "Web Development"
 image: "/static/assets/img/Kasey.jpg"
-bio: "Building the site"
+bio: "Emerging software and cloud development professional with expertise in AWS, coding, and front-end web design."
 permalink: "team/kasey/"
 tags: ["webDevTeam", "Kasey"]
 github_url: "https://github.com/Mother7Goose"
 linkedin_url: https://www.linkedin.com/in/kasey-garant-653223198/
 ---
+
 
 
 ## **Web Development and Design Expert**
