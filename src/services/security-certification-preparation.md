@@ -2,7 +2,7 @@
 layout: services
 title: Expansive Labs
 url: security-certification-preparation
-name: "Security Certification Preparation"
+name: Security Certification Preparation
 tags: services
 body_class: base-blog
 permalink: "/services/security-certification-preparation/"
