@@ -66,21 +66,27 @@ jobs:
           filepath = ""
 
           if event_name == "pull_request":
-              commits_json = os.environ.get("GITHUB_EVENT_COMMITS", "[]")
-              commits = json.loads(commits_json)
-              for commit in commits:
-                  for added_file in commit.get('added', []):
-                      if 'src/posts/' in added_file and added_file.endswith('.md'):
-                          filepath = added_file
+              pull_request = json.loads(os.environ.get("GITHUB_EVENT_PULL_REQUEST", "{}"))
+              if pull_request and pull_request.get('commits'):
+                  for commit in pull_request['commits']:
+                      commit_data = json.loads(os.environ.get(f"GITHUB_COMMIT_{commit['sha']}", "{}"))
+                      for changed_file in commit_data.get('files', []):
+                          filename = changed_file.get('filename', '')
+                          if 'src/posts/' in filename and filename.endswith('.md'):
+                              filepath = filename
+                              break
+                      if filepath:
                           break
-                  if filepath:
-                      break
-                  for modified_file in commit.get('modified', []):
-                      if 'src/posts/' in modified_file and modified_file.endswith('.md'):
-                          filepath = modified_file
+              elif pull_request and pull_request.get('head') and pull_request['head'].get('sha'):
+                  # Fallback for older events or simpler PRs
+                  head_sha = pull_request['head']['sha']
+                  commit_data = json.loads(os.environ.get(f"GITHUB_COMMIT_{head_sha}", "{}"))
+                  for changed_file in commit_data.get('files', []):
+                      filename = changed_file.get('filename', '')
+                      if 'src/posts/' in filename and filename.endswith('.md'):
+                          filepath = filename
                           break
-                  if filepath:
-                      break
+
           elif event_name == "workflow_dispatch":
               filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
 
