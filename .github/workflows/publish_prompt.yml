@@ -68,31 +68,21 @@ jobs:
           if event_name == "pull_request":
               pull_request = json.loads(os.environ.get("GITHUB_EVENT_PULL_REQUEST", "{}"))
               if pull_request and pull_request.get('commits'):
-                  for commit in pull_request['commits']:
-                      commit_data = json.loads(os.environ.get(f"GITHUB_COMMIT_{commit['sha']}", "{}"))
-                      for changed_file in commit_data.get('files', []):
-                          filename = changed_file.get('filename', '')
-                          if 'src/posts/' in filename and filename.endswith('.md'):
-                              filepath = filename
-                              break
-                      if filepath:
-                          break
-              elif pull_request and pull_request.get('head') and pull_request['head'].get('sha'):
-                  # Fallback for older events or simpler PRs
-                  head_sha = pull_request['head']['sha']
-                  commit_data = json.loads(os.environ.get(f"GITHUB_COMMIT_{head_sha}", "{}"))
-                  for changed_file in commit_data.get('files', []):
-                      filename = changed_file.get('filename', '')
-                      if 'src/posts/' in filename and filename.endswith('.md'):
-                          filepath = filename
-                          break
+                  for commit_obj in pull_request['commits']:
+                      commit_sha = commit_obj.get('sha')
+                      if commit_sha:
+                          CHANGED_FILES=$(git show --pretty="" --name-only $commit_sha)
+                          for file in $CHANGED_FILES; do
+                            if [[ "$file" == *'src/posts/'*.md ]]; then
+                              filepath="$file"
+                              break 2 # Break out of both loops
+                          done
+              elif event_name == "workflow_dispatch":
+                  filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
 
-          elif event_name == "workflow_dispatch":
-              filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
-
-          if not filepath:
-              print("No relevant blog post file found for this event.")
-              exit(1)
+          if [[ -z "$filepath" ]]; then
+            echo "No relevant blog post file found for this event."
+            exit(1)
 
           prompt = extract_prompt(filepath)
 
@@ -104,9 +94,9 @@ jobs:
                   QueueUrl=os.environ['SQS_QUEUE_URL'],
                   MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
               )
-              print(f"Prompt sent to SQS for {filepath}. Message ID: {response['MessageId']}")
+              print(f"Prompt sent to SQS for $filepath. Message ID: {response['MessageId']}")
           else:
-              print(f"No Stable Diffusion prompt found in {filepath}")
+              print(f"No Stable Diffusion prompt found in $filepath")
           EOF
 
   extract_and_queue_prompt_manual:
