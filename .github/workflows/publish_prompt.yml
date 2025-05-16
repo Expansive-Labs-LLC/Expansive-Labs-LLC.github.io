@@ -66,12 +66,21 @@ jobs:
           filepath = ""
 
           if event_name == "push":
-              added_file = os.environ.get("GITHUB_COMMIT_ADDED")
-              modified_file = os.environ.get("GITHUB_COMMIT_MODIFIED")
-              if added_file and 'src/posts/' in added_file:
-                  filepath = added_file
-              elif modified_file and 'src/posts/' in modified_file:
-                  filepath = modified_file
+              commits_json = os.environ.get("GITHUB_EVENT_COMMITS", "[]")
+              commits = json.loads(commits_json)
+              for commit in commits:
+                  for added_file in commit.get('added', []):
+                      if 'src/posts/' in added_file and added_file.endswith('.md'):
+                          filepath = added_file
+                          break
+                  if filepath:
+                      break
+                  for modified_file in commit.get('modified', []):
+                      if 'src/posts/' in modified_file and modified_file.endswith('.md'):
+                          filepath = modified_file
+                          break
+                  if filepath:
+                      break
           elif event_name == "workflow_dispatch":
               filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
 
@@ -116,6 +125,8 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_COMMIT_ADDED: ${{ github.event.commits[0].added[0] || '' }}
+          GITHUB_COMMIT_MODIFIED: ${{ github.event.commits[0].modified[0] || '' }}
           GITHUB_DISPATCH_FILEPATH: ${{ github.event.inputs.filepath || '' }}
         run: |
           python <<EOF
@@ -143,7 +154,8 @@ jobs:
           filepath = ""
 
           if event_name == "push":
-              commits = json.loads(os.environ.get("GITHUB_EVENT_COMMITS", "[]"))
+              commits_json = os.environ.get("GITHUB_EVENT_COMMITS", "[]")
+              commits = json.loads(commits_json)
               for commit in commits:
                   for added_file in commit.get('added', []):
                       if 'src/posts/' in added_file and added_file.endswith('.md'):
