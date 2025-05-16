@@ -72,10 +72,12 @@ jobs:
                       commit_sha = commit_obj.get('sha')
                       if commit_sha:
                           CHANGED_FILES=$(git show --pretty="" --name-only $commit_sha)
-                          for file in $CHANGED_FILES; do
+                          IFS=$'\n' read -r -d '' -a files <<< "$CHANGED_FILES"
+                          for file in "${files[@]}"; do
                             if [[ "$file" == *'src/posts/'*.md ]]; then
                               filepath="$file"
                               break 2 # Break out of both loops
+                            fi
                           done
               elif event_name == "workflow_dispatch":
                   filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
