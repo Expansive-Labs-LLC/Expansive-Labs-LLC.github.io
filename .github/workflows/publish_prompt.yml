@@ -140,10 +140,28 @@ jobs:
               return None
 
           event_name = os.environ.get("GITHUB_EVENT_NAME")
-          filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
+          filepath = ""
+
+          if event_name == "push":
+              commits = json.loads(os.environ.get("GITHUB_EVENT_COMMITS", "[]"))
+              for commit in commits:
+                  for added_file in commit.get('added', []):
+                      if 'src/posts/' in added_file and added_file.endswith('.md'):
+                          filepath = added_file
+                          break
+                  if filepath:
+                      break
+                  for modified_file in commit.get('modified', []):
+                      if 'src/posts/' in modified_file and modified_file.endswith('.md'):
+                          filepath = modified_file
+                          break
+                  if filepath:
+                      break
+          elif event_name == "workflow_dispatch":
+              filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
 
           if not filepath:
-              print("No file path provided for manual trigger.")
+              print("No relevant blog post file found for this event.")
               exit(1)
 
           prompt = extract_prompt(filepath)
@@ -156,7 +174,7 @@ jobs:
                   QueueUrl=os.environ['SQS_QUEUE_URL'],
                   MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
               )
-              print(f"Prompt sent to SQS for {filepath} (manual trigger). Message ID: {response['MessageId']}")
+              print(f"Prompt sent to SQS for {filepath}. Message ID: {response['MessageId']}")
           else:
               print(f"No Stable Diffusion prompt found in {filepath}")
           EOF
