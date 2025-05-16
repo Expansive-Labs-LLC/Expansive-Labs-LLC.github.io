@@ -7,7 +7,8 @@ permalink: "/posts/lm-studio/"
 tags: [blog, LLM, AI,local server, prompt: "An old school early 2000's computer with purple and blue retro colors, using AI to show a prompt on the screen"]
 description: "This is an introduction to my blog."
 authors: Jacob Powell
-Summary:  
+Summary:
+Background: "https://d1ad9tti0xt5ov.cloudfront.net/blog-images/lm-studio.png"
 ---
 ## Level Up Your Open Source Contributions: A Deep Dive into LM Studio
 
