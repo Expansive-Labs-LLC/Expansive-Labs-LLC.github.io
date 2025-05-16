@@ -5,11 +5,7 @@ on:
     branches: [main] # Or your main branch
     paths:
       - 'src/posts/**.md' # Updated path to your blog post files
-  pull_request:
-    branches: [main] # Or your target branch
-    paths:
-      - 'src/posts/**.md' # Updated path to your blog post files
-      
+
   workflow_dispatch:
     inputs:
       filepath:
@@ -22,8 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2 # Needed to compare changes with the base branch
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -71,27 +65,15 @@ jobs:
           event_name = os.environ.get("GITHUB_EVENT_NAME")
           filepath = ""
 
-          if github.event_name == "push":
-            if github.event.commits:
-              for commit in github.event.commits:
-                if commit.added and 'src/posts/' in commit.added[0]:
-                  filepath = commit.added[0]
-                  break
-                elif commit.modified and 'src/posts/' in commit.modified[0]:
-                  filepath = commit.modified[0]
-                  break
-          elif github.event_name == "pull_request":
-            base = github.event.pull_request.base.sha
-            head = github.event.pull_request.head.sha
-            github_api = github.Github(os.environ['GITHUB_TOKEN'])
-            repo = github_api.get_repo(os.environ['GITHUB_REPOSITORY'])
-            comparison = repo.compare(base, head)
-            for file in comparison.files:
-              if file.filename.startswith('src/posts/') and file.filename.endswith('.md') and file.status in ['added', 'modified']:
-                filepath = file.filename
-                break
-          elif github.event_name == "workflow_dispatch":
-            filepath = "${{ github.event.inputs.filepath }}"
+          if event_name == "push":
+              added_file = os.environ.get("GITHUB_COMMIT_ADDED")
+              modified_file = os.environ.get("GITHUB_COMMIT_MODIFIED")
+              if added_file and 'src/posts/' in added_file:
+                  filepath = added_file
+              elif modified_file and 'src/posts/' in modified_file:
+                  filepath = modified_file
+          elif event_name == "workflow_dispatch":
+              filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
 
           if not filepath:
               print("No relevant blog post file found for this event.")
