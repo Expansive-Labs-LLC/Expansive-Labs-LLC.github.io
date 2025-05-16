@@ -8,7 +8,7 @@ tags: [blog, LLM, AI,local server, prompt: "An old school early 2000's computer 
 description: "This is an introduction to my blog."
 authors: Jacob Powell
 Summary:
-Background: "https://d1ad9tti0xt5ov.cloudfront.net/blog-images/lm-studio.png"
+Background: "https://content.testing.expansivelabs.io/blog-images/lm-studio.png"
 ---
 ## Level Up Your Open Source Contributions: A Deep Dive into LM Studio
 
