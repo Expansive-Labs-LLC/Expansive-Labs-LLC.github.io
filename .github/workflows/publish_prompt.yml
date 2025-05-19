@@ -72,8 +72,7 @@ jobs:
                       commit_sha = commit_obj.get('sha')
                       if commit_sha:
                           CHANGED_FILES=$(git show --pretty="" --name-only $commit_sha)
-                          IFS=$'\n' read -r -d '' -a files <<< "$CHANGED_FILES"
-                          for file in "${files[@]}"; do
+                          for file in $CHANGED_FILES; do
                             if [[ "$file" == *'src/posts/'*.md ]]; then
                               filepath="$file"
                               break 2 # Break out of both loops
@@ -91,7 +90,7 @@ jobs:
           if prompt:
               sqs = boto3.client('sqs', region_name=os.environ['AWS_REGION'],
                                  aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-                                 aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
+                                 aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_key'])
               response = sqs.send_message(
                   QueueUrl=os.environ['SQS_QUEUE_URL'],
                   MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
