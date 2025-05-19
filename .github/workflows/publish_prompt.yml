@@ -47,63 +47,55 @@ jobs:
           import frontmatter
           import json
           import boto3
-          import subprocess
 
           def extract_prompt(filepath):
-            with open(filepath, 'r') as f:
-              metadata = frontmatter.load(f)
-              if 'tags' in metadata and isinstance(metadata['tags'], list):
-                for tag in metadata['tags']:
-                  if isinstance(tag, dict) and 'prompt' in tag:
-                    return tag['prompt']
-              # Fallback to searching for a custom comment tag
-              content = f.read()
-              match = re.search(r'', content)
-              if match:
-                return match.group(1).strip()
-            return None
+            try:
+              with open(filepath, 'r') as f:
+                metadata = frontmatter.load(f)
+                if 'tags' in metadata and isinstance(metadata['tags'], list):
+                  for tag in metadata['tags']:
+                    if isinstance(tag, dict) and 'prompt' in tag:
+                      return tag['prompt']
+                content = f.read()
+                match = re.search(r'', content) # Keep your existing regex if needed
+                if match:
+                  return match.group(1).strip()
+              return None
+            except Exception as e:
+              print(f"Error processing file {filepath}: {e}")
+              return None
 
-          event_name = os.environ.get("GITHUB_EVENT_NAME")
-          filepath = ""
+          sqs = boto3.client(
+              'sqs',
+              region_name=os.environ['AWS_REGION'],
+              aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+              aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+          )
+          queue_url = os.environ['SQS_QUEUE_URL']
 
-          if event_name == "pull_request":
-            # Get the base and head commits of the pull request
-            base = os.environ.get("GITHUB_BASE_REF")
-            head = os.environ.get("GITHUB_HEAD_REF")
+          prompts_sent = 0
+          for root, _, files in os.walk('src/posts'):
+            for file in files:
+              if file.endswith('.md'):
+                filepath = os.path.join(root, file)
+                prompt = extract_prompt(filepath)
+                if prompt:
+                  try:
+                    response = sqs.send_message(
+                        QueueUrl=queue_url,
+                        MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath})
+                    )
+                    print(f"Prompt sent to SQS for {filepath}. Message ID: {response['MessageId']}")
+                    prompts_sent += 1
+                  except Exception as e:
+                    print(f"Error sending message to SQS for {filepath}: {e}")
+                else:
+                  print(f"No Stable Diffusion prompt found in {filepath}")
 
-            if base and head:
-              # Use git diff to get the list of changed files
-              command = f"git diff --name-only {base}...{head}"
-              result = subprocess.run(command, shell=True, capture_output=True, text=True, check=True)
-              modified_files = result.stdout.splitlines()
-
-              for modified_file in modified_files:
-                if 'src/posts/' in modified_file and modified_file.endswith('.md'):
-                  filepath = modified_file
-                  break
-            else:
-              print("Could not determine base and head refs for the pull request.")
-              exit(1)
-          elif event_name == "workflow_dispatch":
-            filepath = os.environ.get("GITHUB_DISPATCH_FILEPATH")
-
-          if not filepath:
-            print("No relevant blog post file found for this event.")
-            exit(1)
-
-          prompt = extract_prompt(filepath)
-
-          if prompt:
-            sqs = boto3.client('sqs', region_name=os.environ['AWS_REGION'],
-                              aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-                              aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'])
-            response = sqs.send_message(
-              QueueUrl=os.environ['SQS_QUEUE_URL'],
-              MessageBody=json.dumps({'prompt': prompt, 'blog_filepath': filepath}) # Include filepath for context
-            )
-            print(f"Prompt sent to SQS for {filepath}. Message ID: {response['MessageId']}")
+          if prompts_sent == 0:
+            print("No prompts were sent to SQS.")
           else:
-            print(f"No Stable Diffusion prompt found in {filepath}")
+            print(f"Successfully sent {prompts_sent} prompts to SQS.")
           EOF
 
   extract_and_queue_prompt_manual:
