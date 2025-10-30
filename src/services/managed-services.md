@@ -8,7 +8,7 @@ body_class: base-blog
 permalink: "/services/managed-services/"
 ---
 
-## Understanding Cloud Infrastructure Managed Services
+### Understanding Cloud Infrastructure Managed Services
 
 Cloud Infrastructure Managed Services involve the ongoing management, monitoring, and optimization of your cloud environment by a team of experts. This service frees up your internal resources to focus on core business activities while ensuring your cloud infrastructure remains secure, performant, and cost-effective.
 
