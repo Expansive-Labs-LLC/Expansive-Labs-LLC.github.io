@@ -8,11 +8,11 @@ body_class: base-blog
 permalink: "/services/platform-engineering/"
 ---
 
-# Cloud Infrastructure Platform Engineering
+## Cloud Infrastructure Platform Engineering
 
 Empower your development teams and accelerate software delivery with our Cloud Infrastructure Platform Engineering services. We build and maintain robust, scalable, and self-service cloud platforms that drive innovation and efficiency.
 
-## What We Offer
+### What We Offer
 
 * **Infrastructure as Code (IaC) Automation:**
     * Automated provisioning and management of cloud infrastructure using Terraform, CloudFormation, and other IaC tools.
@@ -35,7 +35,7 @@ Empower your development teams and accelerate software delivery with our Cloud I
     * Ensuring compliance with industry regulations and standards (e.g., GDPR, HIPAA, PCI DSS).
     * Automating security checks and vulnerability scanning.
 
-## Benefits of Our Services
+### Benefits of Our Services
 
 * **Increased Developer Productivity:** Empower developers with self-service tools and automated workflows.
 * **Faster Software Delivery:** Accelerate deployment cycles with CI/CD pipelines and containerization.
@@ -43,7 +43,7 @@ Empower your development teams and accelerate software delivery with our Cloud I
 * **Enhanced Security and Compliance:** Protect your data and applications with robust security measures and ensure compliance.
 * **Reduced Operational Costs:** Automate infrastructure management and optimize resource utilization.
 
-## Our Approach
+### Our Approach
 
 1.  **Assessment:** We assess your current development workflows and infrastructure requirements.
 2.  **Design:** We design a tailored platform engineering solution that meets your specific needs.
@@ -52,12 +52,12 @@ Empower your development teams and accelerate software delivery with our Cloud I
 5.  **Optimization:** We continuously monitor and optimize your platform for performance and efficiency.
 6.  **Support:** We provide ongoing support and maintenance to ensure your platform runs smoothly.
 
-## Cloud Platforms We Support
+### Cloud Platforms We Support
 
 * Amazon Web Services (AWS)
 * Microsoft Azure
 * Google Cloud Platform (GCP)
 
-## Get Started Today
+### Get Started Today
 
 Transform your software delivery process with our Cloud Infrastructure Platform Engineering services. Contact us for a free consultation.
