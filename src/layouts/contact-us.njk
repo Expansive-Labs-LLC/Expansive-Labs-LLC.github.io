@@ -79,6 +79,16 @@ Coded by www.creative-tim.com
                       <label>{{ prompt }}</label>
                       <textarea class="form-control" id="message" rows="6" placeholder="Describe your problem in at least 250 characters"></textarea>
                     </div>
+                    <!-- Honeypot Field (Hidden) -->
+                    <div class="form-group d-none">
+                      <label>Don't fill this out if you're human: </label>
+                      <input type="text" id="bot-field" class="form-control" placeholder="Bot Field">
+                    </div>
+                    <!-- Math Captcha -->
+                    <div class="form-group mb-0 mt-md-0 mt-4">
+                      <label id="captchaLabel">Verification: What is 3 + 4?</label>
+                      <input type="number" id="captchaInput" class="form-control" placeholder="Enter the sum">
+                    </div>
                     <div class="row">
                       <div class="col-md-12 text-center">
                           <input type="submit" value="Submit"/>
