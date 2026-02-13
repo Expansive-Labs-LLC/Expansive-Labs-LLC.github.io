@@ -9,11 +9,11 @@ permalink: "/services/managed-devops-tooling/"
 ---
 
 
-# Managed DevOps Tooling
+## Managed DevOps Tooling
 
 Streamline your software development lifecycle and accelerate your time to market with our comprehensive Managed DevOps Tooling service. We take the burden of managing your complex DevOps toolchain off your shoulders, allowing your team to focus on what they do best: building great software.
 
-## What We Offer
+### What We Offer
 
 Our Managed DevOps Tooling service provides:
 
@@ -27,7 +27,7 @@ Our Managed DevOps Tooling service provides:
 * **Security and Compliance:** We ensure your DevOps toolchain adheres to industry best practices and security standards.
 * **Expert Consulting:** We provide expert guidance and support to help you optimize your DevOps processes.
 
-## Key Benefits
+### Key Benefits
 
 * **Reduced Operational Overhead:** Eliminate the need to hire and manage dedicated DevOps engineers.
 * **Faster Time to Market:** Accelerate your software release cycles with automated pipelines.
@@ -37,7 +37,7 @@ Our Managed DevOps Tooling service provides:
 * **Enhanced Security:** Protect your applications and data with robust security measures.
 * **Access to Experts:** Benefit from the knowledge and experience of our certified DevOps engineers.
 
-## Our Expertise
+### Our Expertise
 
 We have extensive experience in managing a wide range of DevOps tools, including:
 
@@ -48,6 +48,6 @@ We have extensive experience in managing a wide range of DevOps tools, including
 * **Monitoring and Logging:** Prometheus, Grafana, ELK stack, Datadog
 * **Artifact Management:** Nexus, Artifactory
 
-## Get Started Today
+### Get Started Today
 
 Let us take the complexity out of your DevOps toolchain. Contact us today for a free consultation and discover how our Managed DevOps Tooling service can help you achieve your business goals.
