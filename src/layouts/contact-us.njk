@@ -63,40 +63,40 @@ Coded by www.creative-tim.com
                   <div class="card-body pb-2">
                     <div class="row">
                       <div class="col-md-6">
-                        <label>{{ name }}</label>
+                        <label for="name">{{ name }}</label>
                         <div class="input-group mb-4">
-                          <input type="name" id="name" class="form-control" placeholder="Full Name" aria-label="name">
+                          <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" aria-label="name" required maxlength="200">
                         </div>
                       </div>
                       <div class="col-md-6 ps-md-2">
-                        <label>{{ email }}</label>
+                        <label for="email">{{ email }}</label>
                         <div class="input-group">
-                          <input type="email" id="email" class="form-control" placeholder="info@expansivelabs.io">
+                          <input type="email" id="email" name="email" class="form-control" placeholder="info@expansivelabs.io" required maxlength="254">
                         </div>
                       </div>
                     </div>
                     <div class="form-group mb-0 mt-md-0 mt-4">
-                      <label>{{ prompt }}</label>
-                      <textarea class="form-control" id="message" rows="6" placeholder="Describe your problem in at least 250 characters"></textarea>
+                      <label for="message">{{ prompt }}</label>
+                      <textarea class="form-control" id="message" name="message" rows="6" placeholder="Describe your problem in at least 250 characters" required maxlength="5000"></textarea>
                     </div>
-                    <!-- Honeypot Field (Hidden) -->
-                    <div class="form-group d-none">
-                      <label>Don't fill this out if you're human: </label>
-                      <input type="text" id="bot-field" class="form-control" placeholder="Bot Field">
-                    </div>
-                    <!-- Math Captcha -->
-                    <div class="form-group mb-0 mt-md-0 mt-4">
-                      <label id="captchaLabel">Verification: What is 3 + 4?</label>
-                      <input type="number" id="captchaInput" class="form-control" placeholder="Enter the sum">
+                    <!-- Honeypot: the contact API silently drops any submission that fills this in. -->
+                    <div class="form-group d-none" aria-hidden="true">
+                      <label for="company_website">Leave this field empty</label>
+                      <input type="text" id="company_website" name="company_website" class="form-control" tabindex="-1" autocomplete="off">
                     </div>
                     <div class="row">
                       <div class="col-md-12 text-center">
-                          <input type="submit" value="Submit"/>
+                          <input type="submit" id="contactSubmit" value="Submit"/>
                       </div>
                     </div>
+                    <p class="text-xs text-center mt-3 mb-0">
+                      This site is protected by reCAPTCHA and the Google
+                      <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                    </p>
                   </div>
                 </form>
-                <div id="response"></div>
+                <div id="response" role="status" aria-live="polite"></div>
               </div>
             </div>
           </div>
@@ -105,32 +105,88 @@ Coded by www.creative-tim.com
     </div>
 </header>
 
+  {#
+    Wiring lives in src/data/contact.json.
+
+    endpoint is the ExpansiveLabsWebsiteStack API in the infrastructure repo.
+    It verifies every submission server-side with reCAPTCHA v3; the old
+    hand-built execute-api URL checked nothing and must not come back.
+
+    recaptchaSiteKey is the public v3 SITE key, registered for expansivelabs.io
+    and www.expansivelabs.io. Its paired SECRET key lives in Secrets Manager as
+    google/recaptcha/expansive-labs, never in this repo. While it is blank the
+    form stays disabled and points visitors at the email address instead.
+  #}
+  {% if contact.recaptchaSiteKey %}
+  <script src="https://www.google.com/recaptcha/api.js?render={{ contact.recaptchaSiteKey }}"></script>
+  {% endif %}
   <script>
-    const form = document.getElementById('contactForm');
-    const responseDiv = document.getElementById('response');
+    (function () {
+      const ENDPOINT = {{ contact.endpoint | dump | safe }};
+      const SITE_KEY = {{ contact.recaptchaSiteKey | dump | safe }};
+      const FALLBACK = 'Please email us at info@expansivelabs.io instead.';
+      const renderedAt = Date.now();
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const submit = document.getElementById('contactSubmit');
+      const responseDiv = document.getElementById('response');
 
-      fetch('https://osqe3frjqf.execute-api.us-east-1.amazonaws.com/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          message: document.getElementById('message').value
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        responseDiv.innerText = 'Message sent successfully!';
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        responseDiv.innerText = 'Error sending message.';
+      if (!SITE_KEY) {
+        submit.disabled = true;
+        responseDiv.innerText = 'The contact form is temporarily unavailable. ' + FALLBACK;
+        return;
+      }
+
+      function recaptchaToken() {
+        return new Promise(function (resolve, reject) {
+          if (!window.grecaptcha) {
+            reject(new Error('reCAPTCHA did not load'));
+            return;
+          }
+          grecaptcha.ready(function () {
+            grecaptcha.execute(SITE_KEY, { action: 'contact' }).then(resolve, reject);
+          });
+        });
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submit.disabled = true;
+        responseDiv.innerText = 'Sending…';
+
+        recaptchaToken()
+          .then(function (token) {
+            return fetch(ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                formType: 'contact',
+                name: form.name.value,
+                email: form.email.value,
+                message: form.message.value,
+                company_website: form.company_website.value,
+                renderedAt: renderedAt,
+                submittedAt: Date.now(),
+                captchaToken: token
+              })
+            });
+          })
+          .then(function (response) {
+            return response.json().catch(function () { return {}; }).then(function (data) {
+              if (!response.ok) {
+                throw new Error(data.error || ('HTTP ' + response.status));
+              }
+              form.reset();
+              responseDiv.innerText = 'Message sent successfully!';
+            });
+          })
+          .catch(function (error) {
+            console.error('Contact form error:', error);
+            submit.disabled = false;
+            responseDiv.innerText = 'We could not send your message. ' + FALLBACK;
+          });
       });
-    });
+    })();
   </script>
 
   {% include "footer.njk" %}
